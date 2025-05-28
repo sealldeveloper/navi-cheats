@@ -1,5 +1,5 @@
 # navi-cheats
-A repo for cheats with navi for offsec and ctf stuff mostly
+A repo for cheats with [navi](https://github.com/denisidoro/navi) for offsec and ctf stuff mostly
 
 ## Formatting
 
