@@ -1,0 +1,5 @@
+% iis, recon, shortscan
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Shortscan a URL with AI
+$HOME/Documents/Web/Enum/brainstorm/.venv/bin/python3 $HOME/Documents/Web/Enum/brainstorm/fuzzer_shortname.py "ffuf -w ./fuzz.txt -u <url>/FUZZ" "<shortscan-missing>"

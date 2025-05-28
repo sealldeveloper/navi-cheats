@@ -1,0 +1,8 @@
+% go
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Compile for linux/amd64
+GOOS=linux GOARCH=amd64 go build .
+
+# Compile for custom OS/ARCH
+GOOS=<os> GOARCH=<arch> go build .

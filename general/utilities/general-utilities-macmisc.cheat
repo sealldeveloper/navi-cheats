@@ -1,0 +1,5 @@
+% mac, port
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Find occupied port Mac
+sudo lsof -i tcp:<port>

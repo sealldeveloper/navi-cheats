@@ -1,0 +1,16 @@
+% aperisolve, docker, steganography, forensics
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Start AperiSolve with Docker and scan image
+docker compose -f $HOME/Documents/Forensics/AperiSolve/docker-compose.yml up -d && sleep 5 && curl -s -F file=@<image_file> http://localhost:9090/upload | jq -r '.File' | xargs -I {} open "http://localhost:9090/{}"
+
+# Start AperiSolve Docker containers only
+docker compose -f $HOME/Documents/Forensics/AperiSolve/docker-compose.yml up -d
+
+# Stop AperiSolve containers
+docker compose -f $HOME/Documents/Forensics/AperiSolve/docker-compose.yml down
+
+# Upload and analyze image to running AperiSolve instance
+curl -s -F file=@<image_file> http://localhost:9090/upload | jq -r '.File' | xargs -I {} open "http://localhost:9090/{}"
+
+$ image_file: ls

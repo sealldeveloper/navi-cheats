@@ -1,0 +1,28 @@
+% base64, decoding
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Decode Base64 String
+echo "<base64_string_encoded>" | base64 -d 
+
+% base64, encoding
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Encode Base64 String
+echo "<plaintext_string>" | base64
+
+$ plaintext_string: echo -e "sample string\n" --- --map 'sed "s/\"/\\\\\"/g"'
+
+% hex, decoding
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Decode Hex String
+python3 -c "import binascii; print(binascii.unhexlify(b'<hex_string_encoded>'));"
+
+% hex, encoding
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Encode Hex String
+python3 -c "import binascii; print(binascii.hexlify(b'<plaintext_string>'));"
+
+$ plaintext_string: echo -e "sample string\n" --- --map 'sed "s/\"/\\\\\"/g; s/'"'"'/\\\'"'"'/g"'
+
