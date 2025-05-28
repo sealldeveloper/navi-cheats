@@ -1,0 +1,13 @@
+% web, recon, param, url param, arjun, discovery
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Find URL parameters on a webpage endpoint
+$HOME/.local/bin/arjun -u <url>
+
+# Find URL parameters on a webpage endpoint with burp proxy
+$HOME/.local/bin/arjun -u <url> -oB 127.0.0.1:8000
+
+# Find URL parameters on a webpage endpoint with a custom wordlist
+$HOME/.local/bin/arjun -u <url> -w <wordlist>
+
+$ wordlist: ls

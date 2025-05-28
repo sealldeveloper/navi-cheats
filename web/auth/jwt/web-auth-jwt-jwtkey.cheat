@@ -1,0 +1,7 @@
+% jwt, algorithmconfusion
+; From https://github.com/sealldeveloper/navi-cheats/
+; for recovering JWT public key from two jwts
+
+
+# Recover the JWT Public Key from two JWTs
+$HOME/Documents/Web/JWT/JWT-Key-Recovery/.venv/bin/python3 $HOME/Documents/Web/JWT/JWT-Key-Recovery/recover.py <token> <token2>

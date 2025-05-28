@@ -1,0 +1,18 @@
+% web, iis, recon, shortscan
+@ web-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Shortscan a URL
+shortscan <url>
+
+# Shortscan a URL with custom seclist wordlist
+shortscan <url> --wordlst <seclistdir>/<seclistlist>
+
+# Shortscan a URL with custom wordlist
+shortscan <url> --wordlst <wordlist>
+
+
+$ wordlist: ls
+$ output_to_file: echo -e "y\nn"
+$ output_option: if [[ "<output_to_file>" == "y" ]]; then echo " > <output_filename>"; else echo ""; fi
+$ output_filename: if [[ "<output_to_file>" == "y" ]]; then echo -e "shortscan-results.txt\n"; else echo ""; fi

@@ -1,0 +1,9 @@
+% subdomains,subdomain enumeration, external,subfinder
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Find subdomains for a domain, optionally save output
+subfinder -d <target> -all -o <output_to_file>
+
+$ output_to_file: echo -e "y\nn"
+$ output_option: if [[ "<output_to_file>" == "y" ]]; then echo " -o <output_filename>"; else echo ""; fi
+$ output_filename: if [[ "<output_to_file>" == "y" ]]; then echo -e "<target>-subs.txt\n"; else echo ""; fi

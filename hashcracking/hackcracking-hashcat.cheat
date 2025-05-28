@@ -1,4 +1,6 @@
-% hashcat, hash cracking
+% hashcat, kerberoasting
+; From https://github.com/sealldeveloper/navi-cheats/
+
 # crack hash using hashcat
 hashcat -m <hashcat_mode> <hash_or_hashfile> <seclistdir>/<seclistlist>
 

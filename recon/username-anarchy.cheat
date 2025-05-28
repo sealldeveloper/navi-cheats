@@ -1,0 +1,10 @@
+% username, username-anarchy, fullname
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Generate usernames from a full name
+; If you want this tool, setup here: https://github.com/urbanadventurer/username-anarchy
+$HOME/Documents/OSINT/username-anarchy/username-anarchy <name><output_option>
+
+$ output_to_file: echo -e "y\nappend\nn"
+$ output_option: if [[ "<output_to_file>" == "y" ]]; then echo " > <output_filename>"; elif [[ "<output_to_file>" == "append" ]]; then echo " >> <output_filename>"; else echo ""; fi
+$ output_filename: if [[ "<output_to_file>" == "y" ]]; then echo -e "<name>.txt\n" | tr '[:upper:]' '[:lower:]' | tr ' ' '_'; elif [[ "<output_to_file>" == "append" ]]; then echo -e "users.txt\n"; else echo ""; fi

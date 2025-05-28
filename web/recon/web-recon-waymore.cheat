@@ -1,0 +1,13 @@
+% web, recon, waybackmachine
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Retrieve all links related to a particular file of endpoints or an endpoints
+waymore -mode U -i <url_or_file>
+
+# Retrieve all links and responses to a particular file of endpoints or an endpoints
+waymore -i <url_or_file>
+
+# Get the results for a particular domain (Mac)
+open ~/.config/waymore/results/<domain>/waymore.txt
+
+$ url_or_file: ls

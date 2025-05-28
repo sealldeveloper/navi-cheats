@@ -1,0 +1,6 @@
+% windows, bloodhound
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Start bloodhound on Mac (port 8080 webserver, initial password in console on first run)
+curl -L https://ghst.ly/getbhce > docker-compose.yml && \
+docker compose up

@@ -1,0 +1,11 @@
+% windows-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+$ username: if [[ -f "users.txt" ]]; then cat users.txt; fi
+$ username_or_userlist: if [[ -f "users.txt" ]]; then { cat users.txt; ls; }; else ls; fi
+$ group: if [[ -f "groups.txt" ]]; then cat groups.txt; fi
+$ domain: if [[ -f "domains.txt" ]]; then cat domains.txt; fi
+$ dc_ip: if [[ -f "dcip.txt" ]]; then cat dcip.txt; fi
+$ password: if [[ -f "passwords.txt" ]]; then cat passwords.txt; fi
+$ host_address: if [[ -f "ips.txt" ]]; then cat ips.txt; fi
+$ filename: ls

@@ -1,0 +1,11 @@
+% web, recon, directory search, enum
+@ web-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Search for files with a seclist using a random User-Agent
+feroxbuster -A -u <url> --wordlist <seclistdir>/<seclistlist>
+
+# Search for files with a custom wordlist using a random User-Agent
+feroxbuster -A -u <url> --wordlist <wordlist>
+
+$ wordlist: ls
