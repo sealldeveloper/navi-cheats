@@ -1,0 +1,5 @@
+% hashcracking-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+$ passseclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases" && echo "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases") || (test -d "/usr/share/seclists/Passwords/Leaked-Databases" && echo "/usr/share/seclists/Passwords/Leaked-Databases") || echo "."
+$ passseclistlist: ls "<passseclistdir>"

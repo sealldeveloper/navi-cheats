@@ -1,0 +1,8 @@
+% hashcat, kerberoasting
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# crack hash using hashcat
+hashcat -m <hashcat_mode> <hash_or_hashfile> <passseclistdir>/<passseclistlist>
+
+$ hash_or_hashfile: ls
+$ hashcat_mode: hashcat -h 2>/dev/null | grep -E "^\s*(\d+)\s*\|\s*([^|]+?)\s*\|\s*(.+?)\s*$" | awk -F'|' 'NF==3' | sed 's/[[:space:]]\{1,\}/ /g' | sort --- --header "Mode # | Hash Desc. | Hash Type" --delimiter '\|' --column 1 --map 'awk -F"|" "{print \$1}"'
