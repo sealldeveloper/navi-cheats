@@ -1,0 +1,13 @@
+% forens, memory, volatility, volatility3, vol3
+
+# Volatility 3 - Any cmd
+docker run --rm -v $PWD:/workspace sk4la/volatility3 -f /workspace/<filename> <cmd>
+
+# Volatility 3 - Specify remote ISF
+; encountered certain dumps not having the right ISFs so I found loading the remote in the default link below works, but can specify your own with the optional y/n
+docker run --rm -v $PWD:/workspace sk4la/volatility3 --remote-isf-url <isf_link> -f /workspace/<filename> <cmd>
+
+$ filename: ls
+$ default_isf_url: echo -e "y\nn"
+$ isf_link: if [[ "<default_isf_url>" == "y" ]]; then echo "'https://github.com/Abyss-W4tcher/volatility3-symbols/raw/master/banners/banners.json'"; fi
+$ cmd: docker run --rm -v $PWD:/workspace sk4la/volatility3 --remote-isf-url 'https://github.com/Abyss-W4tcher/volatility3-symbols/raw/master/banners/banners.json' -h | sed -n '/Plugins:/,$p' | tail -n +3 | awk 'BEGIN{cmd="";desc=""}/^    [a-zA-Z]/{if(cmd!="")printf "%-40s | %s\n",cmd,desc;cmd=$1;$1="";desc=substr($0,2)}/^                        /{desc=desc" "substr($0,25)}END{if(cmd!="")printf "%-40s | %s\n",cmd,desc}' | sort --- --header "Plugin Name | Description" --delimiter '\|' --column 1
