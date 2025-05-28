@@ -4,3 +4,8 @@
 
 $ seclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content" && echo "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content") || (test -d "/usr/share/seclists/Discovery/Web-Content" && echo "/usr/share/seclists/Discovery/Web-Content") || echo "."
 $ seclistlist: ls "<seclistdir>"
+
+$ dnsseclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Discovery/DNS" && echo "$HOME/Documents/Wordlists/SecLists/Discovery/DNS") || (test -d "/usr/share/seclists/Discovery/DNS" && echo "/usr/share/seclists/Discovery/DNS") || echo "."
+$ dnsseclistlist: ls "<dnsseclistdir>"
+
+$ seclistrootdir: (test -d "$HOME/Documents/Wordlists/SecLists/" && echo "$HOME/Documents/Wordlists/SecLists/") || (test -d "/usr/share/seclists/" && echo "/usr/share/seclists/")

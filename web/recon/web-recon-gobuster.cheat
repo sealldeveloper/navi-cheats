@@ -1,0 +1,11 @@
+% web, recon, gobuster, htb
+@ web-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Bruteforce subdomains with SecLists list
+gobuster dns -d <domain> -w <dnsseclistdir>/<dnsseclistlist>
+
+$ file_path: ls
+$ output_to_file: echo -e "y\nn"
+$ output_option: if [[ "<output_to_file>" == "y" ]]; then echo " -o <output_filename>"; else echo ""; fi
+$ output_filename: if [[ "<output_to_file>" == "y" ]]; then echo -e "results.txt\nscan_output.txt\nhttpx_results.json"; else echo ""; fi

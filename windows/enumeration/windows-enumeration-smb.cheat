@@ -1,0 +1,6 @@
+% windows, smb
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# SMB shares lookup with no authentication
+smbclient -N -L //<ip>

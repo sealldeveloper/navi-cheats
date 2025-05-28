@@ -1,0 +1,61 @@
+% enum, windows, bash
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+; this cheatsheet contains commands to be used in linux for the purpose of enumerating windows hosts
+
+# start hosting winPEAS64.exe from current dir at non-sudo port
+if [ -f /usr/share/peass/winpeas/winPEASx64.exe ]; then
+    cp /usr/share/peass/winpeas/winPEASx64.exe .
+else
+    curl -s https://api.github.com/repos/peass-ng/PEASS-ng/releases/latest | grep "winPEASx64.exe" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+fi
+python3 -m http.server <port>
+
+# start hosting winPEAS86.exe from current dir at non-sudo port
+if [ -f /usr/share/peass/winpeas/winPEASx64.exe ]; then
+    cp /usr/share/peass/winpeas/winPEASx64.exe .
+else
+    curl -s https://api.github.com/repos/peass-ng/PEASS-ng/releases/latest | grep "winPEASx86.exe" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+fi
+python3 -m http.server <port>
+
+# start hosting Seatbelt.exe from current dir at non-sudo port
+wget -O seatbelt.exe https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/refs/heads/master/Seatbelt.exe
+python3 -m http.server <port>
+
+# start hosting PowerUp.ps1 from current dir at non-sudo port
+if [ -f /usr/share/windows-resources/binaries/plink.exe ]; then
+    cp /usr/share/windows-resources/binaries/plink.exe .
+else
+    wget -O PowerUp.ps1 https://github.com/HarmJ0y/PowerUp/raw/refs/heads/master/PowerUp.ps1
+fi
+python3 -m http.server <port>
+
+# start hosting plink.exe from current dir at non-sudo port
+; need to find a remote, luca, seems to be for SSH
+if [ -f /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1 ]; then
+    cp /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1 .
+else
+    wget -O plink.exe https://gitlab.com/kalilinux/packages/windows-binaries/-/raw/kali/master/plink.executing
+fi
+python3 -m http.server <port>
+
+# start hosting nc64.exe from current dir at non-sudo port
+wget -O nc64.exe https://github.com/int0x33/nc.exe/raw/refs/heads/master/nc64.exe
+python3 -m http.server <port>
+
+# start hosting nc.exe from current dir at non-sudo port
+if [ -f /usr/share/windows-resources/binaries/nc.exe ]; then
+    cp /usr/share/windows-resources/binaries/nc.exe .
+else
+    wget -O nc.exe https://github.com/int0x33/nc.exe/raw/refs/heads/master/nc.exe
+fi
+python3 -m http.server <port>
+
+# start hosting PowerView.ps1 from current dir at non-sudo port
+if [ -f /usr/share/windows-resources/powersploit/Recon/PowerView.ps1 ]; then
+    cp /usr/share/windows-resources/powersploit/Recon/PowerView.ps1 .
+else
+    wget -O PowerView.ps1 https://github.com/PowerShellMafia/PowerSploit/raw/refs/heads/master/Recon/PowerView.ps1
+fi
+python3 -m http.server <port>
