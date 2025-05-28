@@ -1,0 +1,10 @@
+% forens, memory, volatility, volatility2, vol2
+
+# Volatility 2 - Any cmd
+; the cmd section missing some (like netscan) as for whatever reason they are not listed in the commands supported under vol2's help page..?
+docker run --rm -v $PWD:/tmp/workspace --rm oste/volatility2:latest -f /tmp/workspace/<filename> <cmd><profile_option>
+
+$ cmd: docker run --rm -v $PWD:/tmp/workspace --rm oste/volatility2:latest -h | sed -n '/Supported Plugin Commands:/,$p' | tail -n +2 | grep -E "^\s+[a-zA-Z0-9]+" | sed 's/^[[:space:]]*//' | awk '{gsub(/[[:space:]]+/, " "); printf "%-20s | %s\n", $1, substr($0, index($0,$2))}' --- --header "Plugin Name | Description" --delimiter '\|' --column 1 --map 'awk -F"|" "{gsub(/^[[:space:]]+|[[:space:]]+$/, \"\", \$1); print \$1}"'
+$ filename: ls
+$ profile_option: if [[ "<cmd>" != "imageinfo" ]]; then echo " --profile <profile>"; else echo ""; fi
+$ profile: if [[ "<cmd>" != "imageinfo" ]]; then if [[ -f "imageinfo.txt" ]]; then cat imageinfo.txt; else echo -e "Input the profile below\n"; fi; else echo ""; fi
