@@ -17,7 +17,7 @@ $ domain: if [[ -f "domains.txt" ]]; then cat domains.txt; fi
 $ dc_ip: if [[ -f "dcip.txt" ]]; then cat dcip.txt; fi
 $ password: if [[ -f "passwords.txt" ]]; then cat passwords.txt; fi
 $ host_address: if [[ -f "ips.txt" ]]; then cat ips.txt; fi
-$ filename: ls
+$ filename: find . -maxdepth 1 -type f
 ```
 
 To include them in your file, just include `@windows-variables`, and it will automatically include the variables and definitions for you.
@@ -40,7 +40,7 @@ $ username: if [[ -f "users.txt" ]]; then cat users.txt; fi
 $ username_or_userlist: if [[ -f "users.txt" ]]; then { cat users.txt; ls; }; else ls; fi
 $ password: if [[ -f "passwords.txt" ]]; then cat passwords.txt; fi
 $ host_address: if [[ -f "ips.txt" ]]; then cat ips.txt; fi
-$ filename: ls
+$ filename: find . -maxdepth 1 -type f
 ```
 
 To include them in your file, just include `@linux-variables`, and it will automatically include the variables and definitions for you.

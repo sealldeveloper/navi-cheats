@@ -8,4 +8,4 @@ $ domain: if [[ -f "domains.txt" ]]; then cat domains.txt; fi
 $ dc_ip: if [[ -f "dcip.txt" ]]; then cat dcip.txt; fi
 $ password: if [[ -f "passwords.txt" ]]; then cat passwords.txt; fi
 $ host_address: if [[ -f "ips.txt" ]]; then cat ips.txt; fi
-$ filename: ls
+$ filename: find . -maxdepth 1 -type f
