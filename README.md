@@ -3,7 +3,7 @@ A repo for cheats with navi for offsec and ctf stuff mostly
 
 ## Formatting
 
-For cheat's, variables have been lowercase mostly. Read [this](github.com/denisidoro/navi/blob/master/docs/cheatsheet/syntax/README.md).
+For cheat's, variables have been lowercase mostly. Read [this](https://github.com/denisidoro/navi/blob/master/docs/cheatsheet/syntax/README.md).
 
 ### Windows
 
