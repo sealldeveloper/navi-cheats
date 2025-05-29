@@ -36,7 +36,7 @@ python3 -m http.server <port>
 if [ -f /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1 ]; then
     cp /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1 .
 else
-    wget -O plink.exe https://gitlab.com/kalilinux/packages/windows-binaries/-/raw/kali/master/plink.executing
+    wget -O plink.exe https://gitlab.com/kalilinux/packages/windows-binaries/-/raw/kali/master/plink.exe
 fi
 python3 -m http.server <port>
 
