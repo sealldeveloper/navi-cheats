@@ -1,6 +1,0 @@
-% windows, kerberos, kerbrute
-@ windows-variables
-; From https://github.com/sealldeveloper/navi-cheats/
-
-# User enumeration kerbrute 
-kerbrute userenum -d <domain> --dc <dc-ip> <filename>

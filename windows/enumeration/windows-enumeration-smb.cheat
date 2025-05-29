@@ -1,12 +1,17 @@
-% windows, smb, enum
+% windows, smb, enum, smbclient
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
+# smbclient - SMB list shares no authentication
+smbclient -N -L //<host_address>
+
+# smbclient - SMB shares - connect with creds
+smbclient //<host_address>/<share> -U <username>%'<password>'
+
+% windows, smb, enum, nxc, netexec
+
 # NxC - SMB basic enum no authentication
 netexec smb <host_address>
-
-# SMB list shares no authentication
-smbclient -N -L //<host_address>
 
 # NxC - SMB shares listing - no authentication
 netexec smb <host_address> -u '' -p '' --shares
@@ -26,5 +31,19 @@ netexec smb <host_address> -u <username> -p <password> -M spider_plus<download_f
 $ download_files_option: echo -e "y\nn"
 $ download_files: if [[ "<download_files_option>" == "y" ]]; then echo " -o DOWNLOAD_FLAG=True"; else echo ""; fi
 
-# SMB shares - connect with creds
-smbclient //<host_address>/<share> -U <username>%'<password>'
+% windows, smb, enum, crackmapexec
+
+# crackmapexec - Enumerate domain password policy information
+crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain> --pass-pol
+
+# crackmapexec - Basic SMB authentication and service enumeration
+crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain>
+
+# crackmapexec - Pass-the-hash authentication using NTLM hash
+crackmapexec smb <host_address> -u <username> -H '<ntlm_hash>' -d <domain>
+
+# crackmapexec - Execute single command on remote system
+crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain> -x '<command>'
+
+# crackmapexec - Execute PowerShell command on remote system
+crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain> -X '<powershell_command>'

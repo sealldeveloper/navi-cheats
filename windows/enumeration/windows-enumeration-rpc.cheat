@@ -2,5 +2,5 @@
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
-# Use impacket to scan RPC (port 135) unauth
+# impacket-rpcdump - to scan RPC unauth
 impacket-rpcdump <ip> -p <port>

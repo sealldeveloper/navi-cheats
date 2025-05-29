@@ -2,12 +2,12 @@
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 
-# Dump a LDAP domain with valid creds
+# ldapdomaindump - Dump a LDAP domain with valid creds
 ldapdomaindump -u '<domain>\<username>' -p '<password>' <host_address>
 
 
 % windows, ldap, ldapsearch
-# Anonymous LDAP bind
+# ldapsearch - Anonymous LDAP bind
 ldapsearch -x -H ldap://<host_address> -b "<domain_dn_format>"
 
 
