@@ -2,27 +2,28 @@
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Decode Base64 String
-echo "<base64_string_encoded>" | base64 -d 
+echo '<base64_string_encoded>' | base64 -d 
 
 % base64, encoding
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Encode Base64 String
-echo "<plaintext_string>" | base64
+echo $'<escaped_plaintext_string>' | base64
 
-$ plaintext_string: echo -e "sample string\n" --- --map 'sed "s/\"/\\\\\"/g"'
+$ escaped_plaintext_string: echo "<plaintext_string>" | sed "s/\'/\\\'/g"
 
 % hex, decoding
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Decode Hex String
-python3 -c "import binascii; print(binascii.unhexlify(b'<hex_string_encoded>'));"
+python3 -c 'import binascii; print(binascii.unhexlify(b\'<hex_string_encoded>\'));'
 
 % hex, encoding
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Encode Hex String
-python3 -c "import binascii; print(binascii.hexlify(b'<plaintext_string>'));"
+python3 -c $'import binascii; print(binascii.hexlify(b\'<escaped_plaintext_string>\'));'
 
-$ plaintext_string: echo -e "sample string\n" --- --map 'sed "s/\"/\\\\\"/g; s/'"'"'/\\\'"'"'/g"'
+$ escaped_plaintext_string: echo "<plaintext_string>" | sed "s/\'/\\\\\\\\\\\'/g"
+
 

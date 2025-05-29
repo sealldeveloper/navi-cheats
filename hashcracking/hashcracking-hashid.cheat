@@ -3,8 +3,11 @@
 ; From https://github.com/sealldeveloper/navi-cheats/
 ; Tool: https://github.com/psypanda/hashID/
 
-# Identify the format of a hash
-hashid <hash>
+# hashid - Identify the format of a hash
+hashid '<hash>'
 
-# Identify the format of a hash into hashcat format
-hashid <hash> -m 
+# hashid - Identify the format of a hash into hashcat format
+hashid '<hash>' -m 
+
+# hashid - Identify the format of a hash into John the Ripper format
+hashid '<hash>' -j
