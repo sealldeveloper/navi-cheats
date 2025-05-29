@@ -3,4 +3,4 @@
 
 $ hash: if [[ -f "hashes.txt" ]]; then cat hashesusers.txt; fi
 $ passseclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases" && echo "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases") || (test -d "/usr/share/seclists/Passwords/Leaked-Databases" && echo "/usr/share/seclists/Passwords/Leaked-Databases") || echo "."
-$ passseclistlist: find "<passseclistdir>" -maxdepth 1 -type f
+$ passseclistlist: ls -p "<passseclistdir>" | grep -v /

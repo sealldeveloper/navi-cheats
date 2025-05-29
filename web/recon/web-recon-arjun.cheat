@@ -10,4 +10,4 @@ $HOME/.local/bin/arjun -u <url> -oB 127.0.0.1:8000
 # Find URL parameters on a webpage endpoint with a custom wordlist
 $HOME/.local/bin/arjun -u <url> -w <wordlist>
 
-$ wordlist: find . -maxdepth 1 -type f
+$ wordlist: ls -p . | grep -v /

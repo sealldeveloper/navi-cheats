@@ -1,10 +1,13 @@
 % john, john the ripper, hash cracking
 @ hashcracking-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
-; Tool: https://github.com/psypanda/hashID/
+; Tool: https://github.com/openwall/john
 
 # Crack the hash with John
 john --wordlist=<passseclistdir>/<passseclistlist> <hashfile>
 
-# Identify the format of a hash into hashcat format
-hashid <hash> -m 
+# Crack the hash with John with specified format
+john --wordlist=<passseclistdir>/<passseclistlist> <hashfile> --format=<format>
+
+$ hashfile: ls -p . | grep -v /
+$ format: hashid "<hashfile>" -j | grep -E '\[\+\]' | sed 's/\[\+\][[:space:]]//' | sed 's/[[:space:]]\[JtR[[:space:]]Format:[[:space:]]/\|/g' | sed 's/\]//g' | awk -F'|' '{print $2 "|SUGGESTED BY HASHID - " $1}'  | sort | uniq; john --list=formats | sed 's/,/\n/g' | sed 's/^[[:space:]]//' | sort | uniq | tail -n +2 --- --header "Hash Format | Description" --delimiter '\|' --column 1 --map 'awk -F"|" "{print \$1}"'

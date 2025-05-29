@@ -5,6 +5,6 @@
 ; the interact.sh server being its own input is because we dont necessarily want it enabled.
 nuclei -l <inputpages> -o nuclei-<targetname><interactsh>
 
-$ inputpages: find . -maxdepth 1 -type f
+$ inputpages: ls -p . | grep -v /
 $ use_interactsh_server: echo -e "y\nn"
 $ interactsh: if [[ "<use_interactsh_server>" == "y" ]]; then echo ""; else echo " -ni"; fi

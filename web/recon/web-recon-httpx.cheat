@@ -7,7 +7,7 @@ $HOME/go/bin/httpx -up
 # Usual httpx, custom useragent, list some details about the URL
 $HOME/go/bin/httpx -td -sc -cl -title -bp -server -H "User-Agent: <user-agent>" -fr -l <file_path> -csp-probe -tls-probe<output_option>
 
-$ file_path: find . -maxdepth 1 -type f
+$ file_path: ls -p . | grep -v /
 $ output_to_file: echo -e "y\nn"
 $ output_option: if [[ "<output_to_file>" == "y" ]]; then echo " -o <output_filename>"; else echo ""; fi
 $ output_filename: if [[ "<output_to_file>" == "y" ]]; then echo -e "results.txt\nscan_output.txt\nhttpx_results.json"; else echo ""; fi

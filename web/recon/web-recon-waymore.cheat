@@ -10,4 +10,4 @@ waymore -i <url_or_file>
 # Get the results for a particular domain (Mac)
 open ~/.config/waymore/results/<domain>/waymore.txt
 
-$ url_or_file: find . -maxdepth 1 -type f
+$ url_or_file: ls -p . | grep -v /

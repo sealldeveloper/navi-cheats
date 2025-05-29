@@ -4,4 +4,4 @@
 # Render mermaid graph with existing nice CSS rules that look good
 mmdc -i <input> -o <output> -C $HOME/Documents/mmdc.css -t dark -b transparent
 
-$ input: find . -maxdepth 1 -type f
+$ input: ls -p . | grep -v /

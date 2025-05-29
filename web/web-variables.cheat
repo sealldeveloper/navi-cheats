@@ -3,9 +3,9 @@
 
 
 $ seclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content" && echo "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content") || (test -d "/usr/share/seclists/Discovery/Web-Content" && echo "/usr/share/seclists/Discovery/Web-Content") || echo "."
-$ seclistlist: find "<seclistdir>" -maxdepth 1 -type f
+$ seclistlist: ls -p "<seclistdir>" | grep -v /
 
 $ dnsseclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Discovery/DNS" && echo "$HOME/Documents/Wordlists/SecLists/Discovery/DNS") || (test -d "/usr/share/seclists/Discovery/DNS" && echo "/usr/share/seclists/Discovery/DNS") || echo "."
-$ dnsseclistlist: find "<dnsseclistdir>" -maxdepth 1 -type f
+$ dnsseclistlist: ls -p "<dnsseclistdir>" | grep -v /
 
 $ seclistrootdir: (test -d "$HOME/Documents/Wordlists/SecLists/" && echo "$HOME/Documents/Wordlists/SecLists/") || (test -d "/usr/share/seclists/" && echo "/usr/share/seclists/")

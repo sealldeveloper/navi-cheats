@@ -17,7 +17,7 @@ $ domain: if [[ -f "domains.txt" ]]; then cat domains.txt; fi
 $ dc_ip: if [[ -f "dcip.txt" ]]; then cat dcip.txt; fi
 $ password: if [[ -f "passwords.txt" ]]; then cat passwords.txt; fi
 $ host_address: if [[ -f "ips.txt" ]]; then cat ips.txt; fi
-$ filename: find . -maxdepth 1 -type f
+$ filename: ls -p . | grep -v /
 ```
 
 To include them in your file, just include `@windows-variables`, and it will automatically include the variables and definitions for you.
@@ -40,7 +40,7 @@ $ username: if [[ -f "users.txt" ]]; then cat users.txt; fi
 $ username_or_userlist: if [[ -f "users.txt" ]]; then { cat users.txt; ls; }; else ls; fi
 $ password: if [[ -f "passwords.txt" ]]; then cat passwords.txt; fi
 $ host_address: if [[ -f "ips.txt" ]]; then cat ips.txt; fi
-$ filename: find . -maxdepth 1 -type f
+$ filename: ls -p . | grep -v /
 ```
 
 To include them in your file, just include `@linux-variables`, and it will automatically include the variables and definitions for you.
@@ -55,7 +55,7 @@ For Web, generally the following variables have these values:
 
 ```
 $ seclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content" && echo "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content") || (test -d "/usr/share/seclists/Discovery/Web-Content" && echo "/usr/share/seclists/Discovery/Web-Content") || echo "."
-$ seclistlist: find "<seclistdir>" -maxdepth 1 -type f
+$ seclistlist: ls -p "<seclistdir>" | grep -v /
 ```
 
 To include them in your file, just include `@web-variables`, and it will automatically include the variables and definitions for you.
@@ -69,7 +69,7 @@ For Hash Cracking, generally the following variables have these values:
 ```
 $ hash: if [[ -f "hashes.txt" ]]; then cat hashesusers.txt; fi
 $ passseclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases" && echo "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases") || (test -d "/usr/share/seclists/Passwords/Leaked-Databases" && echo "/usr/share/seclists/Passwords/Leaked-Databases") || echo "."
-$ passseclistlist: find "<passseclistdir>" -maxdepth 1 -type f
+$ passseclistlist: ls -p "<passseclistdir>" | grep -v /
 ```
 
 To include them in your file, just include `@hashcracking-variables`, and it will automatically include the variables and definitions for you.

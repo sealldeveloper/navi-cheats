@@ -13,7 +13,7 @@ shortscan <url> --wordlst <seclistdir>/<seclistlist>
 shortscan <url> --wordlst <wordlist>
 
 
-$ wordlist: find . -maxdepth 1 -type f
+$ wordlist: ls -p . | grep -v /
 $ output_to_file: echo -e "y\nn"
 $ output_option: if [[ "<output_to_file>" == "y" ]]; then echo " > <output_filename>"; else echo ""; fi
 $ output_filename: if [[ "<output_to_file>" == "y" ]]; then echo -e "shortscan-results.txt\n"; else echo ""; fi
