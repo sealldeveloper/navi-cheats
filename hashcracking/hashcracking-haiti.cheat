@@ -1,0 +1,7 @@
+% haiti, hash cracking
+@ hashcracking-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/noraj/haiti
+
+# haiti - Identify the format of a hash in John and Hashcat formats
+haiti '<hash>'
