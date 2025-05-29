@@ -4,7 +4,7 @@
 # Typical list port scan
 nmap -sS -p- -A -oA nmap-fullPort -iL <listfile>
 
-$ listfile: ls
+$ listfile: find . -maxdepth 1 -type f
 
 # Typical individual port scan
 nmap -sS -p- -A -oA nmap-fullPort <ip-or-range>

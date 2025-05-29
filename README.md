@@ -55,7 +55,7 @@ For Web, generally the following variables have these values:
 
 ```
 $ seclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content" && echo "$HOME/Documents/Wordlists/SecLists/Discovery/Web-Content") || (test -d "/usr/share/seclists/Discovery/Web-Content" && echo "/usr/share/seclists/Discovery/Web-Content") || echo "."
-$ seclistlist: ls "<seclistdir>"
+$ seclistlist: find "<seclistdir>" -maxdepth 1 -type f
 ```
 
 To include them in your file, just include `@web-variables`, and it will automatically include the variables and definitions for you.
@@ -67,10 +67,13 @@ If more SecLists directories need to be used, add them to the tested directories
 For Hash Cracking, generally the following variables have these values:
 
 ```
+$ hash: if [[ -f "hashes.txt" ]]; then cat hashesusers.txt; fi
 $ passseclistdir: (test -d "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases" && echo "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases") || (test -d "/usr/share/seclists/Passwords/Leaked-Databases" && echo "/usr/share/seclists/Passwords/Leaked-Databases") || echo "."
-$ passseclistlist: ls "<passseclistdir>"
+$ passseclistlist: find "<passseclistdir>" -maxdepth 1 -type f
 ```
 
 To include them in your file, just include `@hashcracking-variables`, and it will automatically include the variables and definitions for you.
 
 If more SecLists directories need to be used, add them to the tested directories in the `passseclistdir` in `hashcracking-variables`.
+
+`hashes.txt` should contain hashes.

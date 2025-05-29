@@ -8,4 +8,4 @@ feroxbuster -A -u <url> --wordlist <seclistdir>/<seclistlist>
 # Search for files with a custom wordlist using a random User-Agent
 feroxbuster -A -u <url> --wordlist <wordlist>
 
-$ wordlist: ls
+$ wordlist: find . -maxdepth 1 -type f

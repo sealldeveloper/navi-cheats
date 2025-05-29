@@ -1,0 +1,10 @@
+% john, john the ripper, hash cracking
+@ hashcracking-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/psypanda/hashID/
+
+# Crack the hash with John
+john --wordlist=<passseclistdir>/<passseclistlist> <hashfile>
+
+# Identify the format of a hash into hashcat format
+hashid <hash> -m 

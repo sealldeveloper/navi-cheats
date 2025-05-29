@@ -23,4 +23,4 @@ hydra -l <username> -P <passseclistdir>/<passseclistlist> <target> https-post-fo
 # Restore previous session
 hydra -R
 
-$ inputfile: ls
+$ inputfile: find . -maxdepth 1 -type f

@@ -1,0 +1,6 @@
+% windows, download
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Download a file with certutil
+certutil.exe -urlcache -f <url> <outfile>
