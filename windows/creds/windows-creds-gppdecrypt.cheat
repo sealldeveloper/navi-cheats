@@ -1,0 +1,10 @@
+% windows, group policy preferences, gppdecrypt, gpp-decrypt, gpp
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/t0thkr1s/gpp-decrypt
+
+# gppdecrypt - Decrypt Group Policy Preferences XML file
+python3 gpp-decrypt.py -f <filename>
+
+# gppdecrypt - Decrypt cPassword from Group Policy Preferences XML file
+python3 gpp-decrypt.py -c <cPassword>

