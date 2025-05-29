@@ -1,5 +1,6 @@
 % external, nmap, port scan
 ; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/nmap/nmap
 
 # Typical list port scan
 nmap -sS -p- -A -oA nmap-fullPort -iL <listfile>

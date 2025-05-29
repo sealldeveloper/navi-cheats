@@ -1,6 +1,27 @@
-% windows, smb
+% windows, smb, enum
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
-# SMB shares lookup with no authentication
-smbclient -N -L //<ip>
+# SMB basic enum no authentication
+netexec smb <host_address>
+
+# SMB shares listing with no authentication
+netexec smb <host_address> -u guest -p '' --shares
+
+# SMB shares - spidering all shares (except default excluded) with no authentication
+netexec smb <host_address> -u guest -p '' -M spider_plus<download_files>
+
+# SMB - RID Brute force with no authentication
+netexec smb <host_address> -u guest -p '' --rid-brute
+
+# SMB shares listing - provide creds
+netexec smb <host_address> -u <username> -p <password> --shares
+
+# SMB shares - spidering all shares (except default excluded) - provide creds
+netexec smb <host_address> -u <username> -p <password> -M spider_plus<download_files>
+
+$ download_files_option: echo -e "y\nn"
+$ download_files: if [[ "<download_files_option>" == "y" ]]; then echo ""; else echo " -o DOWNLOAD_FLAG=True -o MAX_FILE_SIZE=9999999"; fi
+
+# SMB shares - connect with creds
+smbclient //<host_address>/<share> -U <username>%'<password>'

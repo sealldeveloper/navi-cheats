@@ -1,5 +1,6 @@
 % external, nuclei
 ; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/projectdiscovery/nuclei
 
 # Nuclei scan (optional interact.sh server)
 ; the interact.sh server being its own input is because we dont necessarily want it enabled.

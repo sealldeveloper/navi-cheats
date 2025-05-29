@@ -1,0 +1,14 @@
+% windows, ldap, ldapdomaindump
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+
+# Dump a LDAP domain with valid creds
+ldapdomaindump -u '<domain>\<username>' -p '<password>' <host_address>
+
+
+% windows, ldap, ldapsearch
+# Anonymous LDAP bind
+ldapsearch -x -H ldap://<host_address> -b "<domain_dn_format>"
+
+
+$ domain_dn_format: if [[ -f "domains.txt" ]]; then cat domains.txt | sed 's/\./,DC=/g' | sed 's/^/DC=/'; fi 

@@ -1,0 +1,9 @@
+% tty, stablise, shell, revshell, reverse shell
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Stablise/Normalise shell to full TTY with python3
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+# Stablise/Normalise shell to full TTY with powersploit
+perl -e 'exec "/bin/bash";'
+

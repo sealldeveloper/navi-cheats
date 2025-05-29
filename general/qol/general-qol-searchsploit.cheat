@@ -1,0 +1,5 @@
+% searchsploit, exploitdb
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Get an exploit from searchsploit to the current directory
+searchsploit <searchsploit_id> -m

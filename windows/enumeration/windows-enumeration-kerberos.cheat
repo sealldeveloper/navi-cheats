@@ -1,0 +1,6 @@
+% windows, kerberos
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+
+# Fix clock skew for kerberos with faketime
+faketime "$(date -d "$(ntpdate -q <dc_ip> | head -1 | cut -d' ' -f1-2)" '+%Y-%m-%d %H:%M:%S')" <cmd>

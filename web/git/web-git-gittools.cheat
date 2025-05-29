@@ -1,0 +1,10 @@
+# web, git, gittools, .git
+; From https://github.com/sealldeveloper/navi-cheats
+; Tool: https://github.com/internetwache/GitTools
+
+# Dump a .git folder from a website to a specified location with GitTools
+$HOME/Documents/Git/GitTools/Dumper/gitdumper.sh <url> <dest-dir>
+
+# Extract commits from a dumped .git file
+$HOME/Documents/Git/GitTools/Extractor/extract.sh <git-folder> <dest-dir>
+
