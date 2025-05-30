@@ -1,0 +1,6 @@
+% ffmpeg
+
+# Convert audio to Stero on video
+ffmpeg <inputfile> -c:v copy -ac 2 -c:a aac -b:a 320k -ar 48000 <outputfile>
+
+$ inputfile: ls -p . | grep -v /
