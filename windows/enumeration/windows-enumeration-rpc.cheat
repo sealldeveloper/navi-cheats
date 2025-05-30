@@ -3,4 +3,9 @@
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # impacket-rpcdump - to scan RPC unauth
-impacket-rpcdump <ip> -p <port>
+impacket-rpcdump <host_address> -p <port>
+
+$ port: echo -e "135\n"
+
+# rpcclient - Null session
+rpcclient -U "" -N <host_address>

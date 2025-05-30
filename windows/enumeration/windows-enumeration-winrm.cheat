@@ -1,0 +1,6 @@
+% windows, winrm, win-rm
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# evil-winrm - Connect to WinRM with evil-winrm with creds
+evil-winrm -i <host_address> -u <username> -p <password>
