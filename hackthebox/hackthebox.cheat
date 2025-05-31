@@ -1,4 +1,5 @@
 % htb, hack the box, hackthebox
+; From https://github.com/sealldeveloper/navi-cheats/
 
 # Setup Windows Box environment
 mkdir '<box-name>'; cd '<box-name>';

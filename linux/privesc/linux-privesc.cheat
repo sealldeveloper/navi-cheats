@@ -1,11 +1,19 @@
 % privesc, linux, enum
 @ linux-variables
+; From https://github.com/sealldeveloper/navi-cheats/
 
 # Find SUID binaries
 find / -perm -u=s -type f 2>/dev/null
 
 # Find SGID binaries
 find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
+
+% privsec, linux, enum, gtfobins, living off the landing
+@ linux-variables
+; This is essentially a bash-only interaction with GTFOBins
+; The project was inspired by https://github.com/7Rocky/gtfobins-cli but
+; I wanted it to work in Navi on it's own
+; From https://github.com/sealldeveloper/navi-cheats/
 
 # Check binary entries from GTFObins (gtfobins.github.io)
 curl -s "https://gtfobins.github.io/gtfobins.json" | jq -r --arg bin "<binary>" '.[$bin] | if . then "\u001b[1;36mBinary: \($bin)\u001b[0m\n\u001b[1;33mFunctions: \(.functions | keys | join(", "))\u001b[0m\n\u001b[1;35mDescription: \(.description // "No description")\u001b[0m\n" + (.functions | to_entries | map("\n\u001b[1;34m=== \(.key) ===\u001b[0m\n" + (.value | map((if .description then "\u001b[1;31m\(.description)\u001b[0m\n\n" else "" end) + "\u001b[1;32m\(.code)\u001b[0m") | join("\n\u001b[1;90m• • •\u001b[0m\n"))) | join("\n\u001b[1;90m────────────────────\u001b[0m\n")) else "\u001b[1;31mBinary not found in GTFOBins\u001b[0m" end'
