@@ -9,6 +9,7 @@ smbclient -N -L //<host_address>
 smbclient //<host_address>/<share> -U <username>%'<password>'
 
 % windows, smb, enum, nxc, netexec
+@ windows-variables
 
 # NxC - SMB basic enum no authentication
 netexec smb <host_address>
@@ -32,6 +33,7 @@ $ download_files_option: echo -e "y\nn"
 $ download_files: if [[ "<download_files_option>" == "y" ]]; then echo " -o DOWNLOAD_FLAG=True"; else echo ""; fi
 
 % windows, smb, enum, crackmapexec
+@ windows-variables
 
 # crackmapexec - Enumerate domain password policy information
 crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain> --pass-pol

