@@ -1,9 +1,11 @@
 % htb, hack the box, hackthebox
 
 # Setup Windows Box environment
+mkdir '<box-name>'; cd '<box-name>';
 touch users.txt; touch passwords.txt; touch ips.txt; touch dcip.txt;
 echo "<ip>" > ips.txt; echo "<ip>" > dcip.txt;
 
 # Setup Linux Box environment
+mkdir '<box-name>'; cd '<box-name>';
 touch users.txt; touch passwords.txt; touch ips.txt;
 echo "<ip>" > ips.txt;
