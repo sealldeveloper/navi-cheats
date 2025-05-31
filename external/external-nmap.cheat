@@ -10,6 +10,6 @@ $ listfile: ls -p . | grep -v /
 # Typical individual port scan
 nmap -sS -p- -A -oA nmap-fullPort <ip-or-range>
 
-% htb, nmap, port scan
+% htb, nmap, port scan, hack the box, hackthebox
 # HackTheBox Port Scan with verbose and T5, faster scan
 sudo nmap -p- -A -T5 -v <ip-or-range>
