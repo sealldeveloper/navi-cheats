@@ -3,3 +3,6 @@
 
 # Get an exploit from searchsploit to the current directory
 searchsploit <searchsploit_id> -m
+
+# Search ExploitDB for an explit
+searchsploit <query>

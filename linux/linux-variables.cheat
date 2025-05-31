@@ -1,0 +1,7 @@
+% linux-variables
+
+$ username: if [[ -f "users.txt" ]]; then cat users.txt; fi
+$ username_or_userlist: if [[ -f "users.txt" ]]; then { cat users.txt; ls; }; else ls; fi
+$ password: if [[ -f "passwords.txt" ]]; then cat passwords.txt; fi
+$ host_address: if [[ -f "ips.txt" ]]; then cat ips.txt; fi
+$ filename: ls -p . | grep -v /
