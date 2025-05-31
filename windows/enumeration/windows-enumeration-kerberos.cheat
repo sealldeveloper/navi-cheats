@@ -9,4 +9,4 @@ faketime "$(date -d "$(ntpdate -q <dc_ip> | head -1 | cut -d' ' -f1-2)" '+%Y-%m-
 @ windows-variables
 
 # Kerbrute - Kerberos user enumeration
-kerbrute userenum -d <domain> --dc <dc-ip> <filename>
+kerbrute userenum -d <domain> --dc <dc_ip> <filename>
