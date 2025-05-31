@@ -19,6 +19,14 @@ else
 fi
 python3 -m http.server <port>
 
+# start hosting linpeas from current dir at non-sudo port
+if [ -f /usr/share/peass/linpeas/linpeas.sh ]; then
+    cp /usr/share/peass/linpeas/linpeas.sh .
+else
+    curl -s https://api.github.com/repos/peass-ng/PEASS-ng/releases/latest | grep "linpeas.sh" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+fi
+python3 -m http.server <port>
+
 # start hosting SharpHound.exe from current dir at non-sudo port
 curl -s https://api.github.com/repos/SpecterOps/SharpHound/releases/latest | grep "_windows_x86\.zip" | grep -v 'debug' | grep -v "zip\." | cut -d : -f 2,3 | tr -d \" | wget -qi -
 7z x SharpHound*.zip -bso0 -bsp0 && find . -maxdepth 1 -name "SharpHound*" ! -name "SharpHound.exe" -delete 

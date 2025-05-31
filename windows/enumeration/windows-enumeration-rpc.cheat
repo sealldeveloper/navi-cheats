@@ -5,7 +5,7 @@
 # impacket-rpcdump - to scan RPC unauth
 impacket-rpcdump <host_address> -p <port>
 
-$ port: echo -e "135\n"
-
 # rpcclient - Null session
 rpcclient -U "" -N <host_address>
+
+$ port: echo -e "135\n"
