@@ -1,0 +1,14 @@
+% web, recon, wordpress, wpscan, wp, discovery
+; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/wpscanteam/wpscan
+
+# Scan a WordPress installation for any vulnerable plugins, themes, timthumbs, config backups, database exports
+wpscan <url> --rua -e vp,vt,tt,cb,dbe <api_token_final>
+
+# Scan a WordPress installation for users via UID
+wpscan <url> --rua -e m,u1-<uid_count> <api_token_final>
+
+$ wordlist: ls -p . | grep -v /
+$ use_api_token: echo -e "y\nn" --- --header "Do you want to use an API token for WPScan?"
+$ api_token: if [[ "<use_api_token>" == "y" ]]; then if [[ ! -z "$WPSCAN_TOKEN" ]]; then echo -e "$WPSCAN_TOKEN\n"; else echo -e "\n"; fi; else echo ""; fi --- --header "Enter API Token"
+$ api_token_final: if [[ "<use_api_token>" == "y" ]]; then echo "--api-token <api_token>"; else echo ""; fi
