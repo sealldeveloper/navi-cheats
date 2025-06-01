@@ -8,8 +8,8 @@ wpscan --url <url> --rua -e vp,vt,tt,cb,dbe <api_token_final>
 # Scan a WordPress installation for users via UID
 wpscan --url <url> --rua -e u1-<uid_count> <api_token_final>
 
-# Scan a WordPress installation for media via MediaIS
-wpscan --url <url> --rua -e m1-<uid_count> <api_token_final>
+# Scan a WordPress installation for media via MediaID
+wpscan --url <url> --rua -e m1-<media_id_count> <api_token_final>
 
 $ url: if [[ -f "ips.txt" ]]; then while read -r ip; do echo "http://$ip"; echo "https://$ip"; done < ips.txt; fi; if [[ -f "hostnames.txt" ]]; then while read -r host; do echo "http://$host"; echo "https://$host"; done < hostnames.txt; fi
 
