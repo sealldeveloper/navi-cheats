@@ -1,5 +1,8 @@
 # navi-cheats
-A repo for cheats with [navi](https://github.com/denisidoro/navi) for offsec and ctf stuff mostly
+A repo for cheats with [navi](https://github.com/denisidoro/navi) for Offensive Security, Hack The Box, CTF and certificates (OSCP, CRTO, etc).
+
+## Credit
+- [raffaele-99](https://github.com/raffaele-99) for contributions of cheats (mostly Windows) while studying OSCP
 
 ## Formatting
 
