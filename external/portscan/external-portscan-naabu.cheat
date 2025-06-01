@@ -5,8 +5,6 @@
 # Typical list port scan
 naabu -list <listfile> -p - -o naabu-fullPort.txt
 
-$ listfile: if [[ -f "ips.txt" ]]; then echo "ips.txt"; fi; if [[ -f "hostnames.txt" ]]; then echo "hostnames.txt"; fi
-
 # Typical individual port scan
 naabu -host <ip-or-range> -p - -o naabu-fullPort.txt
 

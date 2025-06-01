@@ -1,3 +1,4 @@
 % external-variables
 
 $ ip-or-range: if [[ -f "ips.txt" ]]; then echo "ips.txt"; fi; if [[ -f "hostnames.txt" ]]; then echo "hostnames.txt"; fi
+$ listfile: ls -p . | grep -v /

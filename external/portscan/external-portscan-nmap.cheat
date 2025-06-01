@@ -6,8 +6,6 @@
 # Typical list port scan
 nmap -sS -p- -A -oA nmap-fullPort -iL <listfile>
 
-$ listfile: ls -p . | grep -v /
-
 # Typical individual port scan
 nmap -sS -p- -A -oA nmap-fullPort <ip-or-range>
 
