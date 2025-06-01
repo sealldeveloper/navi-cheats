@@ -1,7 +1,7 @@
 % htb, qol, hosts
 
 # Add entry to hosts file
-sudo echo "<ip> <domain>" >> /etc/hosts
+echo '<ip> <domain>' | sudo tee -a /etc/hosts
 
 $ domain: echo $(basename $(pwd)) | tr '[:upper:]' '[:lower:]' | sed 's/$/.htb\n/' --- --header "Enter the domain for the entry"
 $ ip: if [[ -f "ips.txt" ]]; then cat ips.txt; fi --- --header "Enter the HTB Machine IP"
