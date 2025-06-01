@@ -3,10 +3,15 @@
 ; Tool: https://github.com/wpscanteam/wpscan
 
 # Scan a WordPress installation for any vulnerable plugins, themes, timthumbs, config backups, database exports
-wpscan <url> --rua -e vp,vt,tt,cb,dbe <api_token_final>
+wpscan --url <url> --rua -e vp,vt,tt,cb,dbe <api_token_final>
 
 # Scan a WordPress installation for users via UID
-wpscan <url> --rua -e m,u1-<uid_count> <api_token_final>
+wpscan --url <url> --rua -e u1-<uid_count> <api_token_final>
+
+# Scan a WordPress installation for media via MediaIS
+wpscan --url <url> --rua -e m1-<uid_count> <api_token_final>
+
+$ url: if [[ -f "ips.txt" ]]; then while read -r ip; do echo "http://$ip"; echo "https://$ip"; done < ips.txt; fi; if [[ -f "hostnames.txt" ]]; then while read -r host; do echo "http://$host"; echo "https://$host"; done < hostnames.txt; fi
 
 $ wordlist: ls -p . | grep -v /
 $ use_api_token: echo -e "y\nn" --- --header "Do you want to use an API token for WPScan?"
