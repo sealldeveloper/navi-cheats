@@ -1,0 +1,6 @@
+% code review, codereview, semgrep
+; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/semgrep/semgrep
+
+# Review the source code of an application with semgrep, store output to semgrep.txt
+semgrep --config auto | tee semgrep.txt

@@ -3,13 +3,13 @@
 ; From https://github.com/sealldeveloper/navi-cheats/
 ; Tool: https://github.com/projectdiscovery/naabu
 
-# Typical list port scan
+# naabu - Typical list port scan
 naabu -list <listfile> -p - -o naabu-fullPort.txt
 
-# Typical individual port scan
+# naabu - Typical individual port scan
 naabu -host <ip-or-range> -p - -o naabu-fullPort.txt
 
 % htb, naabu, port scan, hack the box, hackthebox
 @ external-variables
-# HackTheBox Port Scan with verbose and fast scan
+# naabu - HackTheBox Port Scan with verbose and fast scan
 sudo naabu -host <ip-or-range> -p - -v -rate 10000 -o htb-naabu.txt

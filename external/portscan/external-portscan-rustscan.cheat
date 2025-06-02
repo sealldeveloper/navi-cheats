@@ -1,0 +1,21 @@
+% external, rustscan, port scan
+@ external-variables
+; From https://github.com/sealldeveloper/navi-cheats/
+; Tool: https://github.com/bee-san/RustScan
+
+# rustscan - Typical list port scan
+rustscan -a <listfile> --ulimit 5000 -- -A -v -oA rustscan-fullPort
+
+# rustscan - Typical individual port scan
+rustscan -a <ip-or-range> --ulimit 5000  -- -A -v -oA rustscan-fullPort
+
+# rustscan - Typical individual port range scan
+rustscan -a <ip-or-range> --range <port1>-<port2> --ulimit 5000  -- -A -v -oA rustscan-fullPort
+
+# rustscan - Typical individual ports specified scan
+rustscan -a <ip-or-range> -p <ports-comma-seperated> --ulimit 5000  -- -A -v -oA rustscan-fullPort
+
+% htb, naabu, port scan, hack the box, hackthebox
+@ external-variables
+# rustscan - HackTheBox Port Scan with verbose and fast scan
+rustscan -a <ip-or-range> --ulimit 5000 -- -A -v -oA rustscan-fullPort
