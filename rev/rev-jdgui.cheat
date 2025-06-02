@@ -1,0 +1,5 @@
+% java, hd-gui, jd, java rev, rev
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Reverse engineer a JAR with jd-gui
+jd-gui <filename>
