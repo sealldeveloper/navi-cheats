@@ -1,0 +1,123 @@
+% enum, linux, bash
+@ linux-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Get IDs for current user context
+id
+
+# Get OS version
+cat /etc/issue
+
+# Get OS release info
+cat /etc/os-release
+
+# Get kernel version
+uname -r
+
+# Get system architecture
+arch
+
+# List system processes
+ps aux
+
+# List system processes running as root
+ps aux | grep 'root'
+
+# List network adapters
+ifconfig a
+
+# List active network connections and listening ports using netstat
+netstat -ap
+
+# List active network connections and listening ports using netstat, skip dns check
+netstat -anp
+
+# List active network connections and listening ports using ss
+ss -ap
+
+# List active network connections and listening ports using ss, skip dns check
+ss -anp
+
+# List network routing tables using route
+route
+
+# List network routing tables using routel
+routel
+
+# View cronjobs
+ls -lah /etc/cron* && crontab -l
+
+# View cronjobs using sudo (can give different results)
+ls -lah /etc/cron* && sudo crontab -l
+
+# List installed packages (debian)
+dpkg -l
+
+# List installed packages (red hat)
+rpm -l
+
+# Find all directories writable by current user
+find / -writable -type d 2>/dev/null
+
+# Find all files writable by current user
+find / -writable -type f 2>/dev/null
+
+# List all mounted filesystems using mount
+mount
+
+# List all mounted filesystems
+cat /etc/fstab
+
+# List all available disks
+lsblk
+
+# List loaded kernel modules
+lsmod
+
+# Get info about specific kernel module
+/sbin/modinfo <MODULE>
+
+# Find all SUID binaries
+find / -perm -u=s -type f 2>/dev/null
+
+# Run command every n seconds and view output
+watch -n <SECONDS> "<COMMAND>"
+
+# List system processes containing string, refresh every second
+watch -n 1 "ps aux | grep <STRING>"
+
+# List system processes, refresh every second
+watch -n 1 "ps aux"
+
+# Check syslog for given string
+grep "<STRING>" /var/log/syslog
+
+# Check syslog for calls to cron
+grep "CRON" /var/log/syslog
+
+# Add new root user to /etc/passwd (file must be writable)
+echo "<username>:$(openssl passwd <password>):0:0:root:/root:/bin/bash" >> /etc/passwd
+
+# List binaries with capabilities
+/usr/sbin/getcap -r / 2>/dev/null
+
+# List allowed sudo commands for current user
+sudo -l
+
+# Check system logs for x string
+cat /var/log/syslog | grep <STRING>
+
+# Port scan a single port on a /24 network using nc
+for i in $(seq 1 254); do nc -zv -w 1 <FIRST_3_OCTETS>.$i <PORT>; done
+
+# Port scan a range of ports on a single host using nc
+for i in $(seq <START_FROM_PORT> <FINISH_AT_PORT>); do nc -zv -w 1 <HOST_IP> $i; done
+
+% enum, linux, postgresql
+@ linux-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Select database
+\c <DB_NAME>

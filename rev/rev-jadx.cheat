@@ -1,0 +1,5 @@
+% java, jadx, jadx-gui, java rev, rev
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Reverse engineer a JAR/APK with jadx-gui
+jadx-gui <filename>

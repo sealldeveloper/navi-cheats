@@ -1,0 +1,15 @@
+% privesc, windows, bash
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; This cheatsheet contains commands to be used in linux for the purpose of attacking windows hosts
+
+# Compile c code to 64-bit windows executable
+x86_64-w64-mingw32-gcc <input_c_filename> -o <output_exe_filename>
+
+$ input_c_filename: find . -name '*.c' 2>/dev/null
+
+# Compile c++ code to windows dll
+x86_64-w64-mingw32-gcc <input_cpp_filename> --shared -o <output_dll_filename>
+
+$ input_cpp_filename: find . -name '*.cpp' 2>/dev/null

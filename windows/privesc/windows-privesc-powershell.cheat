@@ -1,0 +1,14 @@
+% privesc, windows, powershell
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Create PSCredential object
+ $password = ConvertTo-SecureString "<password>" -AsPlainText -Force
+ $credential = New-Object System.Management.Automation.PSCredential("<username>", $password)
+
+# Start a powershell session for a user on a different host
+ $password = ConvertTo-SecureString "<password>" -AsPlainText -Force
+ $credential = New-Object System.Management.Automation.PSCredential("<username>", $password)
+Enter-PSSession -ComputerName <COMPUTER_NAME> -Credential $credential
+

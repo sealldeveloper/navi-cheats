@@ -12,4 +12,4 @@ naabu -host <ip-or-range> -p - -o naabu-fullPort.txt
 % htb, naabu, port scan, hack the box, hackthebox
 @ external-variables
 # HackTheBox Port Scan with verbose and fast scan
-naabu -host <ip-or-range> -p - -v -rate 10000 -o htb-naabu.txt
+sudo naabu -host <ip-or-range> -p - -v -rate 10000 -o htb-naabu.txt

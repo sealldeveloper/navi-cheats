@@ -1,0 +1,13 @@
+% privesc, windows, cmd
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Run program as different user - requires GUI as it opens a new window
+runas /user:<username> <program>
+
+# Start a powershell session as a different user - requires GUI
+runas /user:<username> powershell.exe
+
+# Add user to localgroup RDP
+net localgroup "Remote Desktop Users" /add <username>

@@ -1,0 +1,19 @@
+% enum, adcs, cmd
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# List all users in the domain using CMD
+net user /domain
+
+# Get info on a specific domain user using CMD
+net user <username> /domain
+
+# List all groups in the domain using CMD
+net group /domain
+
+# List all users in a domain group using CMD
+net group "<DOMAIN_GROUP_NAME>" /domain
+
+# Get details on a specific SPN / service account using setspn.exe
+setspn -L <USER>

@@ -1,0 +1,79 @@
+% enum, adcs, powerview
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Get basic domain details using PowerView
+Get-NetDomain
+
+# Get the domain SID using PowerView
+Get-DomainSID
+
+# Get list of all users in current domain using PowerView
+Get-NetUser <option>
+$ select_name_only: echo -e "y\nn"
+$ option: if [[ "<select_name_only>" == "y" ]]; then echo "| select name"; else echo ""; fi
+
+# Get info about specific user in current domain using PowerView
+Get-NetUser "<username>"
+
+# Get username for all users in current domain using PowerView
+Get-NetUser | select cn
+
+# Get last login time for all users in current domain using PowerView
+Get-NetUser | select cn,lastlogon,pwdlastset
+
+# Get list of all groups in current domain using PowerView
+Get-NetGroup <option>
+
+# Get info about specific group in current domain using PowerView
+Get-NetGroup "<username>"
+
+# Get list of all computers in current domain using PowerView
+Get-NetComputer <option>
+
+# Get info about specific computer in current domain using PowerView
+Get-NetComputer "<computer_name>"
+
+# Get OS and hostname of every computer in current domain using PowerView
+Get-NetComputer | select operatingsystem,dnshostname
+
+# Get IP address of every computer in current domain using PowerView
+Get-NetComputer | select name | Resolve-IPAddress
+
+# Get list of computers that the current user has admin privileges for using PowerView
+Find-LocalAdminAccess
+
+# Get list of users currently logged into a domain-joined computer using PowerView
+Get-NetSession -ComputerName <computer_name> -Verbose
+
+# Get list of SPNs / service accounts in current domain using PowerView
+Get-NetUser -SPN | select samaccountname,serviceprincipalname
+
+# Get list of ACEs for an object using PowerView
+Get-ObjectAcl -Identity <username>
+
+# Convert an SID to a name using PowerView
+Convert-SidToName <SID>
+
+# Check which objects have GenericAll permissions against a specific object using PowerView
+Get-ObjectAcl -Identity "<GROUP_OR_OBJECT_NAME>" | ? {$_.ActiveDirectoryRights -eq "GenericAll"} | select SecurityIdentifier,ActiveDirectoryRights
+
+# Get list of all shares in current domain using PowerView
+Find-DomainShare
+
+# Get list of all shares accessible by user in current domain using PowerView
+Find-DomainShare -CheckShareAccess
+
+# Find interesting ACLs using PowerView
+Find-InterestingDomainAcl | select identityreferencename,activedirectoryrights,acetype,objectdn | ?{$_.IdentityReferenceName -NotContains "DnsAdmins"} | ft
+
+# Change password for domain user using PowerView
+ $NewPW = ConvertTo-SecureString '<new_password>' -AsPlainText -Force
+Set-DomainUserPassword -Identity <username> -AccountPassword $NewPW
+
+# Enable domain user account using PowerView
+Enable-DomainUser -Identity <username>
+
+# Unlock domain user account using PowerView
+Unlock-DomainUser -Identity <username>

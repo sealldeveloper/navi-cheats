@@ -1,9 +1,9 @@
 % enum, windows, bash
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
-; this cheatsheet contains commands to be used in linux for the purpose of enumerating windows hosts
+; This cheatsheet contains commands to be used in linux for the purpose of enumerating windows hosts
 
-# start hosting winPEAS64.exe from current dir at non-sudo port
+# Start hosting winPEAS64.exe from current dir at non-sudo port
 if [ -f /usr/share/peass/winpeas/winPEASx64.exe ]; then
     cp /usr/share/peass/winpeas/winPEASx64.exe .
 else
@@ -11,7 +11,7 @@ else
 fi
 python3 -m http.server <port>
 
-# start hosting winPEAS86.exe from current dir at non-sudo port
+# Start hosting winPEAS86.exe from current dir at non-sudo port
 if [ -f /usr/share/peass/winpeas/winPEASx64.exe ]; then
     cp /usr/share/peass/winpeas/winPEASx64.exe .
 else
@@ -19,7 +19,7 @@ else
 fi
 python3 -m http.server <port>
 
-# start hosting linpeas from current dir at non-sudo port
+# Start hosting linpeas from current dir at non-sudo port
 if [ -f /usr/share/peass/linpeas/linpeas.sh ]; then
     cp /usr/share/peass/linpeas/linpeas.sh .
 else
@@ -27,16 +27,16 @@ else
 fi
 python3 -m http.server <port>
 
-# start hosting SharpHound.exe from current dir at non-sudo port
+# Start hosting SharpHound.exe from current dir at non-sudo port
 curl -s https://api.github.com/repos/SpecterOps/SharpHound/releases/latest | grep "_windows_x86\.zip" | grep -v 'debug' | grep -v "zip\." | cut -d : -f 2,3 | tr -d \" | wget -qi -
 7z x SharpHound*.zip -bso0 -bsp0 && find . -maxdepth 1 -name "SharpHound*" ! -name "SharpHound.exe" -delete 
 python3 -m http.server <port>
 
-# start hosting Seatbelt.exe from current dir at non-sudo port
+# Start hosting Seatbelt.exe from current dir at non-sudo port
 wget -O seatbelt.exe https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/refs/heads/master/Seatbelt.exe
 python3 -m http.server <port>
 
-# start hosting PowerUp.ps1 from current dir at non-sudo port
+# Start hosting PowerUp.ps1 from current dir at non-sudo port
 if [ -f /usr/share/windows-resources/binaries/plink.exe ]; then
     cp /usr/share/windows-resources/binaries/plink.exe .
 else
@@ -44,7 +44,7 @@ else
 fi
 python3 -m http.server <port>
 
-# start hosting plink.exe from current dir at non-sudo port
+# Start hosting plink.exe from current dir at non-sudo port
 ; need to find a remote, luca, seems to be for SSH
 if [ -f /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1 ]; then
     cp /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1 .
@@ -53,11 +53,11 @@ else
 fi
 python3 -m http.server <port>
 
-# start hosting nc64.exe from current dir at non-sudo port
+# Start hosting nc64.exe from current dir at non-sudo port
 wget -O nc64.exe https://github.com/int0x33/nc.exe/raw/refs/heads/master/nc64.exe
 python3 -m http.server <port>
 
-# start hosting nc.exe from current dir at non-sudo port
+# Start hosting nc.exe from current dir at non-sudo port
 if [ -f /usr/share/windows-resources/binaries/nc.exe ]; then
     cp /usr/share/windows-resources/binaries/nc.exe .
 else
@@ -65,7 +65,7 @@ else
 fi
 python3 -m http.server <port>
 
-# start hosting PowerView.ps1 from current dir at non-sudo port
+# Start hosting PowerView.ps1 from current dir at non-sudo port
 if [ -f /usr/share/windows-resources/powersploit/Recon/PowerView.ps1 ]; then
     cp /usr/share/windows-resources/powersploit/Recon/PowerView.ps1 .
 else
@@ -73,7 +73,7 @@ else
 fi
 python3 -m http.server <port>
 
-# start hosting mimikatz.exe (x64) from current dir at non-sudo port
+# Start hosting mimikatz.exe (x64) from current dir at non-sudo port
 if [ -f /usr/share/windows-resources/mimikatz/x64/mimikatz.exe ]; then
     cp /usr/share/windows-resources/mimikatz/x64/mimikatz.exe .
 else
@@ -82,7 +82,7 @@ fi
 python3 -m http.server <port>
 
 
-# start hosting mimikatz.exe (x86) from current dir at non-sudo port
+# Start hosting mimikatz.exe (x86) from current dir at non-sudo port
 if [ -f /usr/share/windows-resources/mimikatz/Win32/mimikatz.exe ]; then
     cp /usr/share/windows-resources/mimikatz/Win32/mimikatz.exe .
 else

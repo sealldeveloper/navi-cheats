@@ -1,0 +1,58 @@
+% enum, windows, cmd
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# List all users
+net user
+
+# List all groups
+net localgroup
+
+# Get info on a specific user
+net user <username>
+
+# Get OS, version, architecture
+systeminfo
+
+# List network interfaces
+ipconfig /all
+
+# Show possible attack vectors to other systems/networks
+route print
+
+# List active network connections
+netstat -ano
+
+# Search files matching a specific name
+dir /a/b/s <filename>
+
+# Check permissions for a file or directory
+icacls <file-or-directory-path>
+
+# List all privileges for current user
+whoami /priv
+
+# List all groups current user belongs to
+whoami /groups
+
+# List services that have unquoted paths (excludes windows services)
+wmic service get name,pathname |  findstr /i /v "C:\Windows\\" | findstr /i /v """
+
+# List services that have unquoted paths (includes windows services; less likely to be useful)
+wmic service get name,pathname | findstr /i /v """
+
+# List scheduled tasks
+schtasks /query /fo LIST /v
+
+# List all running tasks
+tasklist 
+
+# Dump SAM to file
+reg save hklm\SAM <filename>
+
+# Dump SYSTEM to file
+reg save hklm\SYSTEM <filename>
+
+# View account policy
+net accounts

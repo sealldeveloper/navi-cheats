@@ -1,0 +1,78 @@
+% enum, adcs, powershell
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; PowerView can do this stuff better but if u cant upload tooling for whatever reason then this works
+
+# Get Primary Domain Controller (PDC) of current domain using powershell
+[System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name
+
+# Get Distinguished Name (DN) of current domain using powershell
+([adsi]'').distinguishedName
+
+# Generate LDAP path for the primary DC of current domain using powershell
+ $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name; $DN = ([adsi]'').distinguishedName; $LDAP = "LDAP://$PDC/$DN"; $LDAP
+
+# Enumerate all users in the domain using powershell
+ $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name;
+ $DN = ([adsi]'').distinguishedName; $LDAP = "LDAP://$PDC/$DN";
+ $direntry = New-Object System.DirectoryServices.DirectoryEntry($LDAP);
+ $dirsearcher = New-Object System.DirectoryServices.DirectorySearcher($direntry);
+ $dirsearcher.filter="samAccountType=805306368";
+ $result = $dirsearcher.FindAll();
+ Foreach($obj in $result)
+ {
+    Foreach($prop in $obj.Properties)
+    {
+        $prop
+    }
+    Write-Host "-------------------------------"
+ }
+
+# Get detailed info on a domain user using powershell
+ $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name;
+ $DN = ([adsi]'').distinguishedName; $LDAP = "LDAP://$PDC/$DN";
+ $direntry = New-Object System.DirectoryServices.DirectoryEntry($LDAP);
+ $dirsearcher = New-Object System.DirectoryServices.DirectorySearcher($direntry);
+ $dirsearcher.filter="name=<username>";
+ $result = $dirsearcher.FindAll();
+ Foreach($obj in $result)
+ {
+    Foreach($prop in $obj.Properties)
+    {
+        $prop
+    }
+    Write-Host "-------------------------------"
+ }
+
+% enum, adcs, ldapsearch
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; ldapsearch is a function provided in the pen200 course content
+; PowerView is more comprehensive but this is quicker and works if you cant upload tooling to a machine
+
+
+# Define LDAPSearch function (run this first)
+function LDAPSearch {
+    param (
+        [string]$LDAPQuery
+    )
+
+    $PDC = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().PdcRoleOwner.Name
+    $DistinguishedName = ([adsi]'').distinguishedName
+
+    $DirectoryEntry = New-Object System.DirectoryServices.DirectoryEntry("LDAP://$PDC/$DistinguishedName")
+
+    $DirectorySearcher = New-Object System.DirectoryServices.DirectorySearcher($DirectoryEntry, $LDAPQuery)
+
+    return $DirectorySearcher.FindAll()
+}
+
+# Get CN and members of every group in a domain using LDAPSearch
+foreach ($group in $(LDAPSearch -LDAPQuery "(objectCategory=group)")) {
+ $group.properties | select {$_.cn}, {$_.member}
+}
+
+# List all members in a group using LDAPSearch
+ $group = LDAPSearch -LDAPQuery "(&(objectCategory=group)(cn=<group>))"; $group.properties.member

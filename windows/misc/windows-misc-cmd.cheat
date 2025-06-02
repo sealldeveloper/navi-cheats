@@ -1,0 +1,48 @@
+% misc, cmd
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Print file to stdout
+type <filepath>
+
+# List current directory
+dir
+
+# List contents of given directory
+dir <filepath>
+
+# Print working directory
+echo %cd%
+
+# List environment variables
+set
+
+# Retrieve specific environment variable
+echo %<variable_name>%
+
+# Go to current user's home folder
+cd %USERPROFILE%
+
+# Go to Windows folder
+cd %windir%
+
+# Reboot machine - requires SeShutdownPrivilege
+shutdown /r /t 0
+
+# Stop a service - requires admin privs
+net stop <service_name>
+
+# Open current directory in explorer
+explorer .
+
+% misc, active directory, cmd
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Add user to domain group
+net group "<group>" <username> /add /domain
+
+# Delete user from domain group
+net group "<group>" <username> /del /domain

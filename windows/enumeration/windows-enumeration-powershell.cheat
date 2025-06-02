@@ -1,0 +1,79 @@
+% enum, windows, powershell, pwsh
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# List all users
+Get-LocalUser
+
+# List all groups
+Get-LocalGroup
+
+# List all users - requires GUI or admin privs
+Get-CimInstance -ClassName Win32_UserAccount -Filter "LocalAccount = TRUE" | Select-Object -Expand Caption
+
+# List all groups - requires GUI or admin privs
+Get-CimInstance -ClassName Win32_Group -Filter "LocalAccount = TRUE" | Select-Object -Expand Caption
+
+# List all members in a group
+Get-LocalGroupMember <group>
+
+# List all members in Administrators group
+Get-LocalGroupMember Administrators
+
+# List running processes
+Get-Process
+
+# List details for specific process
+Get-Process <processname> | Format-List *
+
+# List installed apps (displayname only)
+Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+
+# List installed apps (all properties)
+Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*"
+
+# Search files matching a specific name
+Get-ChildItem -Path <search-path> -Include <filename> -File -Recurse -ErrorAction SilentlyContinue
+
+# Search files matching a specific name while excluding another name
+Get-ChildItem -Path <search-path> -Include <filename> -Exclude <filenames-to-ignore> -File -Recurse -ErrorAction SilentlyContinue 
+
+# Search documents and text files
+Get-ChildItem -Path <search-path> -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+
+# Get command history for pwsh
+Get-History
+
+# Get command history for pwsh via PSReadline
+(Get-PSReadlineOption).HistorySavePath
+
+# List running services - requires GUI or admin privs
+Get-CimInstance -ClassName win32_Service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
+
+# List running services (excluding those in system32) - requires GUI or admin privs
+Get-CimInstance -ClassName win32_Service | Select Name,State,PathName | Where-Object {$_.State -like 'Running' -and $_.PathName -notlike 'C:\Windows\System32\*' -and $_.PathName -notlike 'C:\Windows\system32\*'}
+
+# Check startup type of running service - requires GUI or admin privs
+Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object {$_.Name -like '<service-name>'}
+
+# Check permissions for a file or directory
+Get-Acl -Path <file-or-directory-path>
+
+# List scheduled tasks (excluding tasks authored by Microsoft)
+Get-ScheduledTask | 
+Where-Object { 
+    $_.Author -ne $null -and 
+    $_.Author -ne "" -and 
+    $_.Author -notlike "*Microsoft*" -and 
+    $_.Author -ne "Microsoft Corporation" 
+} | 
+Select-Object TaskName, Author, @{ n = 'UserId'; e = { $_.Principal.UserId }}
+
+# List scheduled tasks
+Get-ScheduledTask | Select-Object Author,@{Name='TaskPath';Expression={$_.TaskPath}},TaskName | Format-Table -AutoSize
+
+# List installed security patches
+Get-CimInstance -Class win32_quickfixengineering | Where-Object { $_.Description -eq "Security Update" }

@@ -1,0 +1,26 @@
+% misc, powershell
+@ windows-variables
+; From https://github.com/sealldeveloper/navi-cheats
+; Written by raffaele-99
+
+# Get file from remote host
+iwr -uri <file_URL> -Outfile <output_filename>
+
+# Start a service
+Start-Service <service_name>
+
+# Stop a service
+Stop-Service <service_name>
+
+# Restart a service
+Restart-Service <service_name>
+
+# Allow / enable scripts for current powershell session
+powershell -ep bypass
+
+# Import powershell script into current session
+. <script_path>
+
+# Import powershell module into current session
+Import-Module <module_path>
+
