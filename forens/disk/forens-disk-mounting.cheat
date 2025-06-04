@@ -1,0 +1,10 @@
+% sealldev, vhd, vhdx, disk image, mount
+
+# Mount a VHD with qemu
+sudo qemu-nbd --connect=/dev/nbd0 '<filepath>'
+sudo fdisk -l /dev/nbd0
+sudo mount -o ro /dev/nbd0p1 <mountpoint>
+
+# Unmount a VHD with qemu
+sudo umount <mountpoint>
+sudo qemu-nbd --disconnect /dev/nbd0

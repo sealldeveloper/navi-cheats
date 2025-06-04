@@ -1,10 +1,10 @@
-% base64, decoding
+% sealldev, base64, decoding
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Decode Base64 String
 echo '<base64_string_encoded>' | base64 -d 
 
-% base64, encoding
+% sealldev, base64, encoding
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Encode Base64 String
@@ -12,13 +12,13 @@ echo $'<escaped_plaintext_string>' | base64
 
 $ escaped_plaintext_string: echo "<plaintext_string>" | sed "s/\'/\\\'/g"
 
-% hex, decoding
+% sealldev, hex, decoding
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Decode Hex String
 python3 -c 'import binascii; print(binascii.unhexlify(b\'<hex_string_encoded>\'));'
 
-% hex, encoding
+% sealldev, hex, encoding
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Encode Hex String

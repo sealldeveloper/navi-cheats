@@ -1,4 +1,4 @@
-% git
+% sealldev, git
 
 # Set global git user name
 git config --global user.name <name>

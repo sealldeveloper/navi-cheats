@@ -1,4 +1,4 @@
-% linux-variables
+% sealldev, linux-variables
 
 $ username: if [[ -f "users.txt" ]]; then cat users.txt; fi
 $ username_or_userlist: if [[ -f "users.txt" ]]; then { cat users.txt; ls; }; else ls; fi

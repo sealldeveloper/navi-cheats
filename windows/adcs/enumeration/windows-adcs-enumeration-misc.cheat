@@ -1,4 +1,4 @@
-% enum, active directory, sysinternals
+% sealldev, enum, active directory, sysinternals
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -6,7 +6,7 @@
 # Get list of users currently logged into a domain-joined computer using PsLoggedon.exe
 .\PsLoggedon.exe \\<HOSTNAME>
 
-% enum, active directory, sharphound
+% sealldev, enum, active directory, sharphound
 @ windows-variables
 
 # Run bloodhound with all collection modes - must load SharpHound.ps1 module first

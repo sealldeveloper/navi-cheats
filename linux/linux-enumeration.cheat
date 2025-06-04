@@ -1,4 +1,4 @@
-% enum, linux, bash
+% sealldev, enum, linux, bash
 @ linux-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -114,7 +114,7 @@ for i in $(seq 1 254); do nc -zv -w 1 <FIRST_3_OCTETS>.$i <PORT>; done
 # Port scan a range of ports on a single host using nc
 for i in $(seq <START_FROM_PORT> <FINISH_AT_PORT>); do nc -zv -w 1 <HOST_IP> $i; done
 
-% enum, linux, postgresql
+% sealldev, enum, linux, postgresql
 @ linux-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99

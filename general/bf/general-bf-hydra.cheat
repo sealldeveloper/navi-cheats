@@ -1,26 +1,37 @@
-% web, hydra, ssh, ftp, smb, rdp, mysql, postgres, telnet, vnc
-@ hashcracking-variables
+% sealldev, web, hydra, ssh, ftp, smb, rdp, mysql, postgres, telnet, vnc
+@ hydra
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Typical brute force attack
-hydra -l <username> -P <passseclistdir>/<passseclistlist> <protocol>://<target>
+hydra <username-portion> <password-portion> <protocol>://<target>
 
 $ protocol: echo -e "ssh\nftp\nsmb\nrdp\nmysql\npostgres\ntelnet\nvnc\n"
 
-% hydra, http-post
+% sealldev, web, hydra, http-post
+@ hydra
 # HTTP POST form brute force
-hydra -l <username> -P <passseclistdir>/<passseclistlist> <target> http-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
+hydra <username-portion> <password-portion> <target> http-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
 
-% hydra, http-get
+% sealldev, web, hydra, http-get
+@ hydra
 # HTTP GET form brute force 
-hydra -l <username> -P <passseclistdir>/<passseclistlist> <target> http-get-form "<endpoint>:username=^USER^&password=^PASS^:F=Error"
+hydra <username-portion> <password-portion> <target> http-get-form "<endpoint>:username=^USER^&password=^PASS^:F=Error"
 
-% hydra, https-post
+% sealldev, web, hydra, https-post
+@ hydra
 # HTTPS POST form brute force
-hydra -l <username> -P <passseclistdir>/<passseclistlist> <target> https-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
+hydra <username-portion> <password-portion> <target> https-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
 
-% hydra, restore
+% sealldev, web, hydra, basic auth, hydra get basic auth, http get
+@ hydra
+
+# HTTP/HTTPS GET Basic Auth 
+hydra <username-portion> <password-portion> <http-or-https><target>
+
+$ http-or-https-select: echo -e "https\nhttp" --- --header "Does the application use HTTP or HTTPS?"
+$ http-or-https: if [[ "<http-or-https-select>" == "http" ]]; then echo "http-get"; else echo "https-get"; fi
+
+
+% sealldev, hydra, restore
 # Restore previous session
 hydra -R
-
-$ inputfile: ls -p . | grep -v /

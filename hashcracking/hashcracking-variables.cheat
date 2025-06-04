@@ -1,4 +1,4 @@
-% hashcracking-variables
+% sealldev, hashcracking-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 $ hash: if [[ -f "hashes.txt" ]]; then cat hashesusers.txt; fi

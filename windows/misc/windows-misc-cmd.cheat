@@ -1,4 +1,4 @@
-% misc, cmd
+% sealldev, misc, cmd
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -36,7 +36,7 @@ net stop <service_name>
 # Open current directory in explorer
 explorer .
 
-% misc, active directory, cmd
+% sealldev, misc, active directory, cmd
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99

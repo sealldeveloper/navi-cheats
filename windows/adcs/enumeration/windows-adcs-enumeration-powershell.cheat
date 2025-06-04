@@ -1,4 +1,4 @@
-% enum, adcs, powershell
+% sealldev, enum, adcs, powershell
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -45,7 +45,7 @@
     Write-Host "-------------------------------"
  }
 
-% enum, adcs, ldapsearch
+% sealldev, enum, adcs, ldapsearch
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99

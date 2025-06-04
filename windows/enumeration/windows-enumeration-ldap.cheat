@@ -1,4 +1,4 @@
-% windows, ldap, ldapdomaindump
+% sealldev, windows, ldap, ldapdomaindump
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 
@@ -6,7 +6,7 @@
 ldapdomaindump -u '<domain>\<username>' -p '<password>' <host_address>
 
 
-% windows, ldap, ldapsearch
+% sealldev, windows, ldap, ldapsearch
 @ windows-variables
 # ldapsearch - Anonymous LDAP bind
 ldapsearch -x -H ldap://<host_address> -b "<domain_dn_format>"

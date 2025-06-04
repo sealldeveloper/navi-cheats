@@ -1,4 +1,4 @@
-% web, webshell, aspx
+% sealldev, web, webshell, aspx
 ; From https://github.com/sealldeveloper/navi-cheats/
 : revshells.com has a bunch, but I also want to grab some basic webshells from seclists:
 
@@ -6,11 +6,11 @@
 cp <seclistrootdir>/Web-Shells/FuzzDB/cmd.aspx shell.aspx
 
 
-% web, webshell, jsp
+% sealldev, web, webshell, jsp
 # Get a JSP webshell from SecLists and put it to current directory
 cp <seclistrootdir>/Web-Shells/FuzzDB/cmd.jsp shell.jsp
 
-% web, webshell, php
+% sealldev, web, webshell, php
 # Get a PHP webshell from SecLists and put it to current directory
 cp <seclistrootdir>/Web-Shells/FuzzDB/cmd.php shell.php
 

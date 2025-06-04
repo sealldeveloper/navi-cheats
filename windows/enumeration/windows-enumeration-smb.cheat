@@ -1,51 +1,60 @@
-% windows, smb, enum, smbclient
+% sealldev, windows, smb, enum, smbclient
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
-# smbclient - SMB list shares no authentication
-smbclient -N -L //<host_address>
+# smbclient - SMB list shares
+smbclient <authenticated> -L //<host_address>
 
 # smbclient - SMB shares - connect with creds
-smbclient //<host_address>/<share> -U <username>%'<password>'
+smbclient <authenticated> //<host_address>/<share>
 
-% windows, smb, enum, nxc, netexec
+$ authenticate: echo -e "y\nn" --- --header "Do you want to use credentials?"
+$ authenticated: if [["<authenticate>" == "y"]]; then echo "-U <username>%'<password>'"; else echo "-N"; fi
+
+% sealldev, windows, smb, enum, nxc, netexec
 @ windows-variables
 
-# NxC - SMB basic enum no authentication
-netexec smb <host_address>
+# NxC - SMB basic enum
+netexec smb <host_address> <authenticated>
 
-# NxC - SMB shares listing - no authentication
-netexec smb <host_address> -u '' -p '' --shares
+# NxC - SMB shares - spidering all shares (except default excluded)
+netexec smb <host_address> <authenticated> -M spider_plus<download_files>
 
-# NxC - SMB shares - spidering all shares (except default excluded) with no authentication
-netexec smb <host_address> -u '' -p '' -M spider_plus<download_files>
+# NxC - SMB - RID Brute force
+netexec smb <host_address> <authenticated> --rid-brute
 
-# NxC - SMB - RID Brute force with no authentication
-netexec smb <host_address> -u '' -p '' --rid-brute
+# NxC - SMB shares listing
+netexec smb <host_address> <authenticated> --shares
 
-# NxC - SMB shares listing - provide creds
-netexec smb <host_address> -u <username> -p <password> --shares
-
-# NxC - SMB shares - spidering all shares (except default excluded) - provide creds
-netexec smb <host_address> -u <username> -p <password> -M spider_plus<download_files>
+$ authenticate: echo -e "y\nn" --- --header "Do you want to use credentials?"
+$ authenticated: if [["<authenticate>" == "y"]]; then echo "-u '<username>' -p '<password>'"; else echo "-u '' -p ''"; fi
 
 $ download_files_option: echo -e "y\nn"
 $ download_files: if [[ "<download_files_option>" == "y" ]]; then echo " -o DOWNLOAD_FLAG=True"; else echo ""; fi
 
-% windows, smb, enum, crackmapexec
+% sealldev, windows, smb, enum, crackmapexec
 @ windows-variables
 
 # crackmapexec - Enumerate domain password policy information
-crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain> --pass-pol
+crackmapexec smb <host_address> <authenticated> -d <domain> --pass-pol
 
 # crackmapexec - Basic SMB authentication and service enumeration
-crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain>
+crackmapexec smb <host_address> <authenticated> -d <domain>
 
 # crackmapexec - Pass-the-hash authentication using NTLM hash
 crackmapexec smb <host_address> -u <username> -H '<ntlm_hash>' -d <domain>
 
 # crackmapexec - Execute single command on remote system
-crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain> -x '<command>'
+crackmapexec smb <host_address> <authenticated> -d <domain> -x '<command>'
 
 # crackmapexec - Execute PowerShell command on remote system
-crackmapexec smb <host_address> -u <username> -p '<password>' -d <domain> -X '<powershell_command>'
+crackmapexec smb <host_address> <authenticated> -d <domain> -X '<powershell_command>'
+
+$ authenticate: echo -e "y\nn" --- --header "Do you want to use credentials?"
+$ authenticated: if [["<authenticate>" == "y"]]; then echo "-u '<username>' -p '<password>'"; else echo "-u '' -p ''"; fi
+
+% sealldev, windows, smb, enum, mount
+@ windows-variables
+
+# Mount a SMB share to a mountpoint
+sudo mount -t cifs //<host_address>/<share> <mountpoint> -o user=<username>,password=<password>

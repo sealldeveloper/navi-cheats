@@ -1,4 +1,4 @@
-% docker
+% sealldev, docker
 
 # Remove an image
 docker image rm <image_id>
@@ -53,7 +53,7 @@ $ container_id: docker ps --- --headers 1 --column 1
 
 
 
-% docker-compose
+% sealldev, docker-compose
 
 # Builds, (re)creates, starts, and attaches to containers for all services
 docker-compose up

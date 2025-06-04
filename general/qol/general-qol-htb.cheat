@@ -1,4 +1,4 @@
-% htb, qol, hosts
+% sealldev, htb, qol, hosts
 
 # Add entry to hosts file
 echo '<ip> <domain>' | sudo tee -a /etc/hosts
