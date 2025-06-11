@@ -1,5 +1,5 @@
 % sealldev, windows, smb, enum, smbclient
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # smbclient - SMB list shares
@@ -12,7 +12,7 @@ $ authenticate: echo -e "y\nn" --- --header "Do you want to use credentials?"
 $ authenticated: if [["<authenticate>" == "y"]]; then echo "-U <username>%'<password>'"; else echo "-N"; fi
 
 % sealldev, windows, smb, enum, nxc, netexec
-@ windows-variables
+@ sealldev, windows-variables
 
 # NxC - SMB basic enum
 netexec smb <host_address> <authenticated>
@@ -33,7 +33,7 @@ $ download_files_option: echo -e "y\nn"
 $ download_files: if [[ "<download_files_option>" == "y" ]]; then echo " -o DOWNLOAD_FLAG=True"; else echo ""; fi
 
 % sealldev, windows, smb, enum, crackmapexec
-@ windows-variables
+@ sealldev, windows-variables
 
 # crackmapexec - Enumerate domain password policy information
 crackmapexec smb <host_address> <authenticated> -d <domain> --pass-pol
@@ -54,7 +54,7 @@ $ authenticate: echo -e "y\nn" --- --header "Do you want to use credentials?"
 $ authenticated: if [["<authenticate>" == "y"]]; then echo "-u '<username>' -p '<password>'"; else echo "-u '' -p ''"; fi
 
 % sealldev, windows, smb, enum, mount
-@ windows-variables
+@ sealldev, windows-variables
 
 # Mount a SMB share to a mountpoint
 sudo mount -t cifs //<host_address>/<share> <mountpoint> -o user=<username>,password=<password>

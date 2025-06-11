@@ -1,5 +1,5 @@
 % sealldev, external, naabu, port scan
-@ external-variables
+@ sealldev, external-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 ; Tool: https://github.com/projectdiscovery/naabu
 
@@ -10,6 +10,6 @@ naabu -list <listfile> -p - -o naabu-fullPort.txt
 naabu -host <ip-or-range> -p - -o naabu-fullPort.txt
 
 % sealldev, htb, naabu, port scan, hack the box, hackthebox
-@ external-variables
+@ sealldev, external-variables
 # naabu - HackTheBox Port Scan with verbose and fast scan
 sudo naabu -host <ip-or-range> -p - -v -rate 10000 -o htb-naabu.txt

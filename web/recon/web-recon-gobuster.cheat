@@ -1,5 +1,5 @@
 % sealldev, web, recon, gobuster, htb
-@ web-variables
+@ sealldev, web-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Bruteforce subdomains with SecLists list

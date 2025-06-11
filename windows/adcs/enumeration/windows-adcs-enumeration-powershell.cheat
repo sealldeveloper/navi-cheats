@@ -1,5 +1,5 @@
 % sealldev, enum, adcs, powershell
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; PowerView can do this stuff better but if u cant upload tooling for whatever reason then this works
@@ -46,7 +46,7 @@
  }
 
 % sealldev, enum, adcs, ldapsearch
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; ldapsearch is a function provided in the pen200 course content

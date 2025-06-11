@@ -1,5 +1,5 @@
 % sealldev, windows, rpc
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # impacket-rpcdump - to scan RPC unauth

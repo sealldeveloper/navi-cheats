@@ -1,5 +1,5 @@
 % sealldev, web, hydra, ssh, ftp, smb, rdp, mysql, postgres, telnet, vnc
-@ hydra
+@ sealldev, hydra
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Typical brute force attack
@@ -8,22 +8,22 @@ hydra <username-portion> <password-portion> <protocol>://<target>
 $ protocol: echo -e "ssh\nftp\nsmb\nrdp\nmysql\npostgres\ntelnet\nvnc\n"
 
 % sealldev, web, hydra, http-post
-@ hydra
+@ sealldev, hydra
 # HTTP POST form brute force
 hydra <username-portion> <password-portion> <target> http-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
 
 % sealldev, web, hydra, http-get
-@ hydra
+@ sealldev, hydra
 # HTTP GET form brute force 
 hydra <username-portion> <password-portion> <target> http-get-form "<endpoint>:username=^USER^&password=^PASS^:F=Error"
 
 % sealldev, web, hydra, https-post
-@ hydra
+@ sealldev, hydra
 # HTTPS POST form brute force
 hydra <username-portion> <password-portion> <target> https-post-form "<endpoint>:username=^USER^&password=^PASS^:F=incorrect"
 
 % sealldev, web, hydra, basic auth, hydra get basic auth, http get
-@ hydra
+@ sealldev, hydra
 
 # HTTP/HTTPS GET Basic Auth 
 hydra <username-portion> <password-portion> <http-or-https><target>

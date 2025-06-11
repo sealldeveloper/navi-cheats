@@ -1,5 +1,5 @@
 % sealldev, windows, responder, ntlm hash, smb, smb share
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # Setup responder on the VPN interface (tun0)

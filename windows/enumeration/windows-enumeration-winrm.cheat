@@ -1,5 +1,5 @@
 % sealldev, windows, winrm, win-rm
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats/
 
 # evil-winrm - Connect to WinRM with evil-winrm with creds

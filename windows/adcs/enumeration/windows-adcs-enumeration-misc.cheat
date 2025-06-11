@@ -1,5 +1,5 @@
 % sealldev, enum, active directory, sysinternals
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -7,7 +7,7 @@
 .\PsLoggedon.exe \\<HOSTNAME>
 
 % sealldev, enum, active directory, sharphound
-@ windows-variables
+@ sealldev, windows-variables
 
 # Run bloodhound with all collection modes - must load SharpHound.ps1 module first
 Invoke-BloodHound -CollectionMethod All -OutputDirectory <OUTPUT_PATH> -OutputPrefix "<OUTPUT_PREFIX>"

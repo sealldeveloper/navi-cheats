@@ -1,5 +1,5 @@
 % sealldev, misc, cmd
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
@@ -37,7 +37,7 @@ net stop <service_name>
 explorer .
 
 % sealldev, misc, active directory, cmd
-@ windows-variables
+@ sealldev, windows-variables
 ; From https://github.com/sealldeveloper/navi-cheats
 ; Written by raffaele-99
 
