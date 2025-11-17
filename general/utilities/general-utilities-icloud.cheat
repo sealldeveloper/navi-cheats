@@ -1,0 +1,4 @@
+% sealldev, icloud
+
+# Download iCloud album
+npx icloud-shared-album <shared_album_token> | jq -r '.photos[].derivatives | to_entries | max_by(.key | capture("^(?<n>[0-9]+)") | .n | tonumber) | .value.url' | xargs -I{} wget --content-disposition -c -- "{}"
