@@ -1,0 +1,10 @@
+% sealldev, binwalk, docker, forensics
+; From https://github.com/sealldeveloper/navi-cheats/
+
+# Analyse a file with Binwalk v3 with Docker on a file
+docker run -t -v .:/analysis refirmlabs/binwalk:latest <input_file>
+
+# Extract files with Binwalk v3 with Docker on a file
+docker run -t -v .:/analysis refirmlabs/binwalk:latest -e <input_file>
+
+$ input_file: ls -p . | grep -v /
